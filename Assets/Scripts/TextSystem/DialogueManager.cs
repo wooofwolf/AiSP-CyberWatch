@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
             choiceSelection.SetActive(false);
         }
 
-        //LeanTween.scale(dialogueBox, new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+        LeanTween.scale(dialogueBox, new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
 
         currentMessages = messages;
         currentActors = actors;
@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
                     }
                     else
                     {
-                        //LeanTween.scale(dialogueBox, new Vector3(0, 0, 0), 1.0f).setEaseOutExpo();
+                        LeanTween.scale(dialogueBox, new Vector3(0, 0, 0), 1.0f).setEaseOutExpo();
                         isActive = false;
                     }
                 }
