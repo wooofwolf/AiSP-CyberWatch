@@ -8,9 +8,23 @@ public class LogoAnimation : MonoBehaviour
 
     public bool isDone = false;
 
+    private SplashScreenManager splashManager;
+
     public void Start()
     {
         ContinueText.SetActive(isDone);
+        splashManager = GameManager.FindObjectOfType<SplashScreenManager>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0) && isDone)
+        {
+            //sceneController.ActivateLoadedScene();
+            //swipeTransition.SetActive(true);
+            //SplashScreenManager.swipeTransition.SetActive(true);
+            splashManager.swipeTransition.SetActive(true);
+        }
     }
 
     public void ShowText()
