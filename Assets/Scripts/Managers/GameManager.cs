@@ -42,19 +42,20 @@ public class GameManager : MonoBehaviour
     #endregion
 
     // FPS Target
-    public int FPStarget = 144;
+    public int FPSTarget = 144;
 
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
+        LeanTween.init();
     }
 
     private void Update()
     {   
         // If current FPS does not match target, try to get it to be the same.
-        if (FPStarget != Application.targetFrameRate)
+        if (FPSTarget != Application.targetFrameRate)
         {
-            Application.targetFrameRate = FPStarget;
+            Application.targetFrameRate = FPSTarget;
         }
     }
 }
