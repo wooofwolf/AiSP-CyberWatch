@@ -5,6 +5,9 @@ using UnityEngine;
 public class SplashScreenManager : MonoBehaviour
 {
     // Public Variables
+    public GameObject sceneFadeChange;
+
+    // Private Variables
     private SceneController sceneController;
     private GameManager gameManager;
 
@@ -13,9 +16,10 @@ public class SplashScreenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //sceneController.LoadSceneAsync(1);
         sceneController = SceneController.INSTANCE;
         gameManager = GameManager.INSTANCE;
+
+        sceneController.LoadSceneAsync(1);
 
         logo = GameObject.Find("SplashLogo").GetComponent<LogoAnimation>();
     }
@@ -24,7 +28,7 @@ public class SplashScreenManager : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0) && logo.isDone)
         {
-            //sceneController.ActivateLoadedScene();
+            sceneController.ActivateLoadedScene();
         }
     }
 }

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class LogoAnimation : MonoBehaviour
 {
-    public GameObject text;
+    public GameObject ContinueText;
 
-    public bool isDone;
+    public bool isDone = false;
 
-    void Start()
+    public void Start()
     {
-        text.SetActive(false);
+        ContinueText.SetActive(isDone);
     }
 
     public void ShowText()
     {
         isDone = true;
-        gameObject.GetComponent<Animator>().SetBool("Finish", isDone);
-        text.SetActive(isDone);
+        ContinueText.SetActive(isDone);
+        GetComponent<Animator>().SetBool("Finish", isDone);
     }
 }

@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     #region SingletonCreation
     // Single Instance creation
-    private static GameManager _INSTANCE = null; 
+    private static GameManager _INSTANCE = null;
 
     // Allow calling of singleton to other
-    public static GameManager INSTANCE 
+    public static GameManager INSTANCE
     {
         get
         {
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject go = new GameObject();
                 _INSTANCE = go.AddComponent<GameManager>();
+                go.name = "GameManager";
                 DontDestroyOnLoad(go);
             }
             return _INSTANCE;
@@ -36,13 +37,20 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
-        Debug.Log("GameManager has been created.");
+    // Properly destroy singleton when quitting
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+        _INSTANCE = null;
+        Debug.Log("Destroyed GameManager");
     }
     #endregion
 
     // FPS Target
     public int FPSTarget = 144;
+    public int numbers = 0;
 
     private void Start()
     {
@@ -51,7 +59,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {   
+    {
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            numbers++;
+        }
+
         // If current FPS does not match target, try to get it to be the same.
         if (FPSTarget != Application.targetFrameRate)
         {

@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
             {
                 GameObject go = new GameObject();
                 _INSTANCE = go.AddComponent<AudioManager>();
+                go.name = "AudioManager";
                 DontDestroyOnLoad(go);
             }
             return _INSTANCE;
@@ -36,8 +37,14 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        Debug.Log("AudioManager has been created.");
+    }
+    
+    // Properly destroy singleton when quitting
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+        _INSTANCE = null;
+        Debug.Log("Destroyed AudioManager");
     }
     #endregion
 

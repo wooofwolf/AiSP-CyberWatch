@@ -19,6 +19,7 @@ public class SceneController : MonoBehaviour
             {
                 GameObject go = new GameObject();
                 _INSTANCE = go.AddComponent<SceneController>();
+                go.name = "SceneController";
                 DontDestroyOnLoad(go);
             }
             return _INSTANCE;
@@ -37,8 +38,14 @@ public class SceneController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
-        Debug.Log("SceneController has been created.");
+    // Properly destroy singleton when quitting
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+        _INSTANCE = null;
+        Debug.Log("Destroyed SceneController");
     }
     #endregion
 
