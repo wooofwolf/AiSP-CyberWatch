@@ -83,6 +83,7 @@ public class SceneController : MonoBehaviour
         if (asyncOperation != null)
         {
             asyncOperation.allowSceneActivation = true;
+            asyncOperation = null;
         }
     }
 
