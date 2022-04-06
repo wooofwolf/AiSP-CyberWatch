@@ -1,79 +1,127 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class ShoppingSceneManager : MonoBehaviour
 {
+    // Public variables
+    [HideInInspector] public bool gameStarted = false;
+    [HideInInspector] public bool gameEnded = false;
+
     // Private variables
-    [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private GameObject grayBG;
-    [SerializeField] private Button buy1, buy2, buy3;
-    [SerializeField] private GameObject chatIcon, chatPanel;
-    [SerializeField] private Animator chatIconAnimator;
+    [SerializeField] private GameObject instructionsObj, instructions2;
+    [SerializeField] private VideoPlayer cutscene, instructions1;
+    [SerializeField] private Sprite[] objectSprites;
+    [SerializeField] private float ySpawn;
+    [SerializeField] private GameObject objectivesObj;
+
+    private ObjectPool objectPool;
+    private Gacha gacha;
 
     // Start is called before the first frame update
     void Start()
     {
+        objectPool = FindObjectOfType<ObjectPool>();
+        gacha = FindObjectOfType<Gacha>();
+
         InitGameObjects();
     }
 
     private void InitGameObjects()
     {
-        // Play cutscene
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/JennieCutscene.mp4");
-        videoPlayer.loopPointReached += CutsceneEnd;
+        // Init cutscene
+        cutscene.gameObject.SetActive(true);
+        cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4");
+        cutscene.loopPointReached += OnStartCutsceneEnd;
 
-        // Init gray background
-        grayBG.SetActive(false);
+        // Init instructions
+        instructionsObj.SetActive(false);
+        instructions1.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Shopping_Instructions.mp4");
+        instructions2.SetActive(false);
 
-        // Init buy buttons
-        buy1.interactable = true;
-        buy2.interactable = true;
-        buy3.interactable = true;
-
-        // Init chat
-        chatPanel.transform.localScale = new Vector3(0, 0, 0);
-        chatIcon.SetActive(false);
-        chatPanel.SetActive(false);
+        // Init GUI
+        objectivesObj.SetActive(false);
     }
 
-    private void CutsceneEnd(VideoPlayer videoPlayer)
+    public void SkipStartCutscene()
     {
-        RectTransform rectTransform = videoPlayer.GetComponent<RectTransform>();
-        LeanTween.moveY(rectTransform, 72, 1f).setEaseInOutExpo();
-        LeanTween.scale(rectTransform, new Vector3(1.57f, 1.57f), 1f).setEaseInOutExpo();
-        Invoke("DeactivateCutscene", 1f);
+        cutscene.frame = (long)cutscene.frameCount;
     }
 
-    private void DeactivateCutscene()
+    private void OnStartCutsceneEnd(VideoPlayer videoPlayer)
     {
-        videoPlayer.gameObject.SetActive(false);
+        cutscene.Stop();
+        cutscene.gameObject.SetActive(false);
+        instructionsObj.SetActive(true);
+        instructions1.Play();
     }
 
-    public void OnProductBuy(int productID)
+    public void NextInstruction()
     {
-        // Set all buttons to uninteractible after buying
-        buy1.interactable = false;
-        buy2.interactable = false;
-        buy3.interactable = false;
+        instructions1.Stop();
+        cutscene.loopPointReached -= OnStartCutsceneEnd;
 
-        // Activate chat icon
-        chatIcon.SetActive(true);
-        LeanTween.scale(chatIcon, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();
-
-        // Activate gray background
-        grayBG.SetActive(true);
+        instructions1.gameObject.SetActive(false);
+        instructions2.SetActive(true);
     }
 
-    public void OnChatOpen()
+    public void StartGame()
     {
-        // Stop chat icon animation
-        chatIconAnimator.SetTrigger("IconClicked");
+        instructions2.SetActive(false);
+        instructionsObj.gameObject.SetActive(false);
 
-        // Animate chat panel
-        chatPanel.SetActive(true);
-        LeanTween.scale(chatPanel, new Vector3(1, 1, 1), 1f).setEaseOutExpo();
+        objectivesObj.SetActive(true);
+        gameStarted = true;
+
+        StartCoroutine(SpawnRoutine());
+    }
+
+    private IEnumerator SpawnRoutine()
+    {
+        while (gameStarted && !gameEnded)
+        {
+            // Spawn products
+            GameObject newObject = objectPool.GetPooledObject();
+            if (newObject != null)
+            {
+                int productID = gacha.GetProductID();
+                ProductStats stats = newObject.GetComponent<ProductStats>();
+                stats.SetStats(productID);
+
+                newObject.GetComponent<SpriteRenderer>().sprite = objectSprites[productID];
+
+                newObject.transform.position = new Vector3(Random.Range(-7f, 7f), ySpawn, 0);
+                newObject.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90f, 90f));
+                newObject.SetActive(true);
+            }
+
+            yield return new WaitForSeconds(Random.Range(1f, 3f));
+        }
+    }
+
+    public int GetNumberOfObjects()
+    {
+        return objectSprites.Length;
+    }
+
+    public void WinGame()
+    {
+        gameEnded = true;
+        objectivesObj.SetActive(false);
+
+        cutscene.gameObject.SetActive(true);
+        cutscene.Prepare();
+        cutscene.targetTexture.Release();
+        cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
+        cutscene.Play();
+    }
+
+    public void LoseGame()
+    {
+        gameEnded = true;
+        objectivesObj.SetActive(false);
     }
 }

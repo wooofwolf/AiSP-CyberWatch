@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ProductStats : MonoBehaviour
+{
+    // Public variables
+    public int productID = -1;  // 0 - Phone, 1 - Scam Phone, 2 - Laptop, 3 - Scam Laptop, 4 - Charger, 5 - Scam Charger
+
+    // Private variables
+    private PlayerController player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.y <= -6f)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void ResetStats()
+    {
+        productID = -1;
+    }
+
+    public void SetStats(int productID)
+    {
+        ResetStats();
+
+        this.productID = productID;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            player.CollectObject(this);
+            gameObject.SetActive(false);
+        }
+    }
+}
