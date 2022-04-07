@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         phoneObjective.text = "Phones (0/3)";
         laptopObjective.text = "Laptops (0/3)";
-        chargerObjective.text = "Chargers (0/3)";
+        chargerObjective.text = "USB Cables (0/3)";
     }
 
     private void Update()
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case 4:     // Charger
                 ++chargersCaught;
-                chargerObjective.text = "Chargers (" + chargersCaught + "/3)";
+                chargerObjective.text = "USB Cables (" + chargersCaught + "/3)";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
                 break;
         }

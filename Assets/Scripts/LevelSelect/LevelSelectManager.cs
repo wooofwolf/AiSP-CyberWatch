@@ -8,6 +8,7 @@ public class LevelSelectManager : MonoBehaviour
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
+    [SerializeField] private GameObject sceneTransition;
 
     private SceneController sceneController;
 
@@ -22,12 +23,16 @@ public class LevelSelectManager : MonoBehaviour
         LeanTween.scale(EventSystem.current.currentSelectedGameObject, new Vector3(buttonAnimScale, buttonAnimScale), buttonAnimDuration).setEasePunch();
         sceneController.LoadSceneAsync(sceneIndex);
 
-        // Change scenes after animation is done
-        Invoke("ActivateLoadedScene", buttonAnimDuration);
+        // Fade to black and change scenes after animation is done
+        StartCoroutine(ActivateLoadedScene());
     }
 
-    private void ActivateLoadedScene()
+    private IEnumerator ActivateLoadedScene()
     {
+        sceneTransition.SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
         sceneController.ActivateLoadedScene();
     }
 }

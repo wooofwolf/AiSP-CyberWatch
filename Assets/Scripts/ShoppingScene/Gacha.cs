@@ -54,12 +54,17 @@ public class Gacha : MonoBehaviour
                 randomNumber -= table[i];
             }
         }
-        Debug.LogError("GetProductID Failed.");
+
         return -1;
     }
 
     public void RecheckWeights()
     {
+        if (amountVariables == 0)
+        {
+            return;
+        }
+
         properWeight = 0;
         singularWeight = startingWeight / amountVariables;
         for (int i = 0; i < table.Count; i++)
@@ -88,6 +93,18 @@ public class Gacha : MonoBehaviour
         }
     }
 
+    public void SetCurrentToOne(int curElement)
+    {
+        for (int i = 0; i < table.Count; i++)
+        {
+            if (i == curElement)
+            {
+                amountVariables += 1;
+                table[i] = 1;
+            }
+        }
+    }
+
     public void UpdateWeights()
     {
         if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) >= 3 && !phoneRemoved)
@@ -97,6 +114,13 @@ public class Gacha : MonoBehaviour
 
             phoneRemoved = true;
         }
+        else if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) < 3 && phoneRemoved)
+        {
+            SetCurrentToOne(0);
+            SetCurrentToOne(1);
+
+            phoneRemoved = false;
+        }
 
         if (player.laptopsCaught + objectPool.GetObjectsOnScreen(2) >= 3 && !laptopRemoved)
         {
@@ -105,6 +129,13 @@ public class Gacha : MonoBehaviour
 
             laptopRemoved = true;
         }
+        else if (player.laptopsCaught + objectPool.GetObjectsOnScreen(2) < 3 && laptopRemoved)
+        {
+            SetCurrentToOne(2);
+            SetCurrentToOne(3);
+
+            laptopRemoved = false;
+        }
 
         if (player.chargersCaught + objectPool.GetObjectsOnScreen(4) >= 3 && !chargerRemoved)
         {
@@ -112,6 +143,13 @@ public class Gacha : MonoBehaviour
             SetCurrentToZero(5);
 
             chargerRemoved = true;
+        }
+        else if (player.chargersCaught + objectPool.GetObjectsOnScreen(4) < 3 && chargerRemoved)
+        {
+            SetCurrentToOne(4);
+            SetCurrentToOne(5);
+
+            chargerRemoved = false;
         }
     }
 }

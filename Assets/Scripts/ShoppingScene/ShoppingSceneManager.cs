@@ -12,7 +12,8 @@ public class ShoppingSceneManager : MonoBehaviour
     [HideInInspector] public bool gameEnded = false;
 
     // Private variables
-    [SerializeField] private GameObject instructionsObj, instructions2;
+    [SerializeField] private GameObject startingFade, sceneTransition;
+    [SerializeField] private GameObject instructionsObj, instructions2, skipButton;
     [SerializeField] private VideoPlayer cutscene, instructions1;
     [SerializeField] private Sprite[] objectSprites;
     [SerializeField] private float ySpawn;
@@ -30,12 +31,26 @@ public class ShoppingSceneManager : MonoBehaviour
         InitGameObjects();
     }
 
+    private void Update()
+    {
+        if (cutscene.url.Contains("Jennie_Start.mp4") && cutscene.frame == 650L)
+        {
+            // Hide skip
+            skipButton.SetActive(false);
+        }
+    }
+
     private void InitGameObjects()
     {
+        // Init transitions
+        startingFade.SetActive(true);
+        sceneTransition.SetActive(false);
+
         // Init cutscene
         cutscene.gameObject.SetActive(true);
         cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4");
         cutscene.loopPointReached += OnStartCutsceneEnd;
+        skipButton.SetActive(true);
 
         // Init instructions
         instructionsObj.SetActive(false);
@@ -48,12 +63,22 @@ public class ShoppingSceneManager : MonoBehaviour
 
     public void SkipStartCutscene()
     {
-        cutscene.frame = (long)cutscene.frameCount;
+        cutscene.frame = 650L;
     }
 
     private void OnStartCutsceneEnd(VideoPlayer videoPlayer)
     {
-        cutscene.Stop();
+        StartCoroutine(TransitionToGame());
+    }
+
+    private IEnumerator TransitionToGame()
+    {
+        sceneTransition.SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
+        sceneTransition.SetActive(false);
+        startingFade.SetActive(true);
         cutscene.gameObject.SetActive(false);
         instructionsObj.SetActive(true);
         instructions1.Play();
@@ -88,14 +113,17 @@ public class ShoppingSceneManager : MonoBehaviour
             if (newObject != null)
             {
                 int productID = gacha.GetProductID();
-                ProductStats stats = newObject.GetComponent<ProductStats>();
-                stats.SetStats(productID);
+                if (productID != -1)
+                {
+                    ProductStats stats = newObject.GetComponent<ProductStats>();
+                    stats.SetStats(productID);
 
-                newObject.GetComponent<SpriteRenderer>().sprite = objectSprites[productID];
+                    newObject.GetComponent<SpriteRenderer>().sprite = objectSprites[productID];
 
-                newObject.transform.position = new Vector3(Random.Range(-7f, 7f), ySpawn, 0);
-                newObject.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90f, 90f));
-                newObject.SetActive(true);
+                    newObject.transform.position = new Vector3(Random.Range(-7f, 7f), ySpawn, 0);
+                    newObject.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90f, 90f));
+                    newObject.SetActive(true);
+                }
             }
 
             yield return new WaitForSeconds(Random.Range(1f, 3f));
