@@ -66,10 +66,12 @@ public class GameManager : MonoBehaviour
             numbers++;
         }
 
+        /*
         // If current FPS does not match target, try to get it to be the same.
         if (FPSTarget != Application.targetFrameRate)
         {
             Application.targetFrameRate = FPSTarget;
         }
+        */
     }
 }

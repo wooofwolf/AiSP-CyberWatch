@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (manager.gameEnded == false)
         {
             //Time.timeScale = Mathf.Clamp(Mathf.Abs(trackVelocity.x), 0.25f, 1);
-            Time.timeScale = Mathf.Clamp(Mathf.Abs(trackVelocity.x / 10), 0.5f, 1);
+            Time.timeScale = Mathf.Clamp(Mathf.Abs(trackVelocity.x / 10), 0.3f, 1);
         }
         else
         {
@@ -208,6 +208,7 @@ public class PlayerController : MonoBehaviour
         if (phonesCaught >= 3 && laptopsCaught >= 3 && chargersCaught >= 3)
         {
             manager.WinGame();
+            Time.timeScale = 1;
         }
     }
 }
