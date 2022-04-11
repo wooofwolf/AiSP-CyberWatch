@@ -1279,10 +1279,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click to start game...
+  m_text: CLICK TO START GAME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7009b2b85a289904cb93c8f2b091870c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 96.8
+  m_fontSize: 85.55
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
