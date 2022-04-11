@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     public int FPSTarget = 144;
     public int numbers = 0;
 
-    public int shop_minigame_1_score;
+    public int shoppingScore1;
 
     private void Start()
     {
