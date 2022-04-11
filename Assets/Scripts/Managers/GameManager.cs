@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public int FPSTarget = 144;
     public int numbers = 0;
 
+    public int shop_minigame_1_score;
+
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
@@ -60,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKey(KeyCode.Space))
         {
             numbers++;

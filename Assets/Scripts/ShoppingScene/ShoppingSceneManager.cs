@@ -220,6 +220,8 @@ public class ShoppingSceneManager : MonoBehaviour
         objectivesObj.SetActive(false);
 
         audioManager.StopMusic();
+
+        GameManager.INSTANCE.shop_minigame_1_score = score;
         
         // Medal System (tbc)
         if(score >= 1250 && score <= 2500)
