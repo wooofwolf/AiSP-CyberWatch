@@ -44,7 +44,7 @@ public class ProductStats : MonoBehaviour
 
     public void RandomSpeed()
     {
-        float randSpeed = Random.Range(3, 5);
+        float randSpeed = Random.Range(3, 7);
         this.speed = randSpeed;
     }
 
