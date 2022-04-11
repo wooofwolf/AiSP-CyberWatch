@@ -91,12 +91,6 @@ public class ShoppingSceneManager : MonoBehaviour
         cutscene.frame = 650L;
     }
 
-    private void OnEndCutscene(VideoPlayer videoPlayer)
-    {
-        SceneController sceneManager = SceneController.INSTANCE;
-        sceneManager.LoadScene(1);
-    }
-
     private void OnStartCutsceneEnd(VideoPlayer videoPlayer)
     {
         StartCoroutine(TransitionToGame());
@@ -245,13 +239,7 @@ public class ShoppingSceneManager : MonoBehaviour
             Debug.Log("You failed...");
         }
 
-        cutscene.gameObject.SetActive(true);
-        cutscene.Prepare();
-        cutscene.targetTexture.Release();
-        cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
-        cutscene.Play();
-
-        cutscene.loopPointReached += OnEndCutscene;
+        SceneController.INSTANCE.LoadScene(3);
     }
 
     public void LoseGame()
