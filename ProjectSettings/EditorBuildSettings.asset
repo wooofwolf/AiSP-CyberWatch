@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: 87fce7d1c3a567740991cbe21e873ba7
   - enabled: 1
-    path: Assets/Scenes/ShoppingScene.unity
+    path: Assets/Scenes/ShoppingScene/ShoppingScene.unity
     guid: 06e7a9df6688b4947aada1f82f536179
   m_configObjects: {}
