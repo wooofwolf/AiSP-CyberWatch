@@ -2,19 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class LevelSelectManager : MonoBehaviour
 {
+    // Public variables
+    public GameObject ShoppingMedal_1, ShoppingMedal_2;
+
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
+
+    private int shoppingScore1, shoppingScore2;
 
     private SceneController sceneController;
 
     private void Start()
     {
         sceneController = SceneController.INSTANCE;
+
+        shoppingScore1 = GameManager.INSTANCE.shoppingScore1;
+
+        Debug.Log(shoppingScore1);
+    }
+
+    private void Update()
+    {
+        if (shoppingScore1 >= 1250 && shoppingScore1 < 2500)
+        {
+            ShoppingMedal_1.GetComponent<Image>().color = new Color(176, 141, 87, 255);
+        }
+        else if (shoppingScore1 >= 2500 && shoppingScore1 < 3500)
+        {
+            ShoppingMedal_1.GetComponent<Image>().color = new Color(192, 192, 192, 255);
+        }
+        else if (shoppingScore1 >= 3500)
+        {
+            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 215, 0, 255);
+        }
+        else
+        {
+            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        }
     }
 
     public void OnButtonPress(int sceneIndex)
