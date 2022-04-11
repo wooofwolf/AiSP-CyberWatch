@@ -6,10 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     #region SingletonCreation
     // Single Instance creation
-    private static AudioManager _INSTANCE = null; 
+    private static AudioManager _INSTANCE = null;
 
     // Allow calling of singleton to other
-    public static AudioManager INSTANCE 
+    public static AudioManager INSTANCE
     {
         get
         {
@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     // Properly destroy singleton when quitting
     private void OnDestroy()
     {
@@ -48,5 +48,39 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    // Add code below
+    // Audio players components.
+    public AudioSource MusicSource;
+    public AudioSource EffectsSource;
+
+    void Start()
+    {
+        if (GameObject.Find("MusicSource") != null)
+        {
+            MusicSource = GameObject.Find("MusicSource").GetComponent<AudioSource>();
+        }
+
+        if (GameObject.Find("EffectSource") != null)
+        {
+            EffectsSource = GameObject.Find("EffectSource").GetComponent<AudioSource>();
+        }
+    }
+
+    // Play a single clip through the sound effects source.
+    public void Play(AudioClip clip)
+    {
+        EffectsSource.clip = clip;
+        EffectsSource.Play();
+    }
+
+    // Play a single clip through the music source.
+    public void PlayMusic(AudioClip clip)
+    {
+        MusicSource.clip = clip;
+        MusicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        MusicSource.Stop();
+    }
 }
