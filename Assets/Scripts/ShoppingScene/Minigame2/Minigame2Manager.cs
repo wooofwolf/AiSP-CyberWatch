@@ -9,7 +9,7 @@ public class Minigame2Manager : MonoBehaviour
     // Private variables
     [SerializeField] private GameObject minigame, resultsScreen;
     [SerializeField] private VideoPlayer endCutscene;
-    [SerializeField] private GameObject results;
+    [SerializeField] private GameObject instructions, results;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
@@ -29,7 +29,15 @@ public class Minigame2Manager : MonoBehaviour
         minigame.SetActive(true);
         resultsScreen.SetActive(false);
         endCutscene.gameObject.SetActive(false);
+        canvasGroup.blocksRaycasts = false;
+        instructions.gameObject.SetActive(true);
         results.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        instructions.gameObject.SetActive(false);
+        canvasGroup.blocksRaycasts = true;
     }
 
     public void BuyProduct()
