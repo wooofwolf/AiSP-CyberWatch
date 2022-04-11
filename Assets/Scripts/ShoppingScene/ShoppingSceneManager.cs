@@ -8,25 +8,41 @@ using UnityEngine.Video;
 public class ShoppingSceneManager : MonoBehaviour
 {
     // Public variables
+    public TextMeshProUGUI scoreText;
+
     [HideInInspector] public bool gameStarted = false;
     [HideInInspector] public bool gameEnded = false;
 
+    [HideInInspector] public int score = 0;
+
+    public AudioClip music;
+
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
-    [SerializeField] private GameObject instructionsObj, instructions2, skipButton;
-    [SerializeField] private VideoPlayer cutscene, instructions1;
-    [SerializeField] private Sprite[] objectSprites;
-    [SerializeField] private float ySpawn;
+    [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject objectivesObj;
 
+    [SerializeField] private GameObject[] instructionsObj; // Array to control instructions
+
+    [SerializeField] private VideoPlayer cutscene, instructonsVideo;
+
+    [SerializeField] private Sprite[] objectSprites;
+
+    [SerializeField] private float ySpawn;
+
+    private int curPage = -1; // Int to control the current page of the instructions
     private ObjectPool objectPool;
     private Gacha gacha;
+
+    // Audio Manager
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectPool = FindObjectOfType<ObjectPool>();
-        gacha = FindObjectOfType<Gacha>();
+        objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
+        gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
+        audioManager = AudioManager.INSTANCE;
 
         InitGameObjects();
     }
@@ -38,6 +54,14 @@ public class ShoppingSceneManager : MonoBehaviour
             // Hide skip
             skipButton.SetActive(false);
         }
+
+        UpdateInstructionVideo();
+        UpdateInstructions();
+    }
+
+    private void FixedUpdate()
+    {
+        scoreText.text = "Score: " + score;
     }
 
     private void InitGameObjects()
@@ -53,9 +77,10 @@ public class ShoppingSceneManager : MonoBehaviour
         skipButton.SetActive(true);
 
         // Init instructions
-        instructionsObj.SetActive(false);
-        instructions1.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Shopping_Instructions.mp4");
-        instructions2.SetActive(false);
+        if (curPage == -1)
+        {
+            instructonsVideo.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Shopping_Instructions.mp4");
+        }
 
         // Init GUI
         objectivesObj.SetActive(false);
@@ -64,6 +89,12 @@ public class ShoppingSceneManager : MonoBehaviour
     public void SkipStartCutscene()
     {
         cutscene.frame = 650L;
+    }
+
+    private void OnEndCutscene(VideoPlayer videoPlayer)
+    {
+        SceneController sceneManager = SceneController.INSTANCE;
+        sceneManager.LoadScene(1);
     }
 
     private void OnStartCutsceneEnd(VideoPlayer videoPlayer)
@@ -77,26 +108,79 @@ public class ShoppingSceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.3f);
 
+        curPage += 1;
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         cutscene.gameObject.SetActive(false);
-        instructionsObj.SetActive(true);
-        instructions1.Play();
+        audioManager.PlayMusic(music);
+    }
+
+    // Updates if instructions is active to play or to stop only before gameplay
+    private void UpdateInstructionVideo()
+    {
+        if (curPage != 2 && curPage != -1)
+        {
+            if (instructionsObj[0].gameObject.activeSelf)
+            {
+                instructonsVideo.Play();
+            }
+            else
+            {
+                instructonsVideo.Stop();
+            }
+        }
+    }
+
+    // Updates instructions array to see which page is currently being shown
+    private void UpdateInstructions()
+    {
+        if (curPage != -1 && curPage != 2)
+        {
+            instructionsObj[curPage].SetActive(true);
+
+            for (int i = 0; i < instructionsObj.Length; i++)
+            {
+                if (i != curPage)
+                {
+                    instructionsObj[i].SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < instructionsObj.Length; i++)
+            {
+                instructionsObj[i].SetActive(false);
+            }
+        }
     }
 
     public void NextInstruction()
     {
-        instructions1.Stop();
-        cutscene.loopPointReached -= OnStartCutsceneEnd;
+        cutscene.frame = 0;
+        instructonsVideo.Stop();
 
-        instructions1.gameObject.SetActive(false);
-        instructions2.SetActive(true);
+        curPage += 1;
+    }
+
+    public void PreviousInstruction()
+    {
+        cutscene.frame = 0;
+        curPage -= 1;
+
+        //instructonsVideo.isLooping = true;
+        //instructonsVideo.Play();
+        //cutscene.loopPointReached += OnStartCutsceneEnd;
     }
 
     public void StartGame()
     {
-        instructions2.SetActive(false);
-        instructionsObj.gameObject.SetActive(false);
+        for (int i = 0; i < instructionsObj.Length; i++)
+        {
+            instructionsObj[i].SetActive(false);
+        }
+
+        curPage += 1;
 
         objectivesObj.SetActive(true);
         gameStarted = true;
@@ -117,6 +201,7 @@ public class ShoppingSceneManager : MonoBehaviour
                 {
                     ProductStats stats = newObject.GetComponent<ProductStats>();
                     stats.SetStats(productID);
+                    stats.RandomSpeed();
 
                     newObject.GetComponent<SpriteRenderer>().sprite = objectSprites[productID];
 
@@ -126,7 +211,7 @@ public class ShoppingSceneManager : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
         }
     }
 
@@ -140,11 +225,33 @@ public class ShoppingSceneManager : MonoBehaviour
         gameEnded = true;
         objectivesObj.SetActive(false);
 
+        audioManager.StopMusic();
+        
+        // Medal System (tbc)
+        if(score >= 1250 && score <= 2500)
+        {
+            Debug.Log("Bronze Medal");
+        }
+        else if (score >= 2500 && score <= 3500)
+        {
+            Debug.Log("Silver Medal");
+        }
+        else if (score >= 3500)
+        {
+            Debug.Log("Gold Medal");
+        }
+        else
+        {
+            Debug.Log("You failed...");
+        }
+
         cutscene.gameObject.SetActive(true);
         cutscene.Prepare();
         cutscene.targetTexture.Release();
         cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
         cutscene.Play();
+
+        cutscene.loopPointReached += OnEndCutscene;
     }
 
     public void LoseGame()

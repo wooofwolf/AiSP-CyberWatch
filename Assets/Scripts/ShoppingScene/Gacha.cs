@@ -18,9 +18,9 @@ public class Gacha : MonoBehaviour
 
     private void Start()
     {
-        manager = FindObjectOfType<ShoppingSceneManager>();
-        player = FindObjectOfType<PlayerController>();
-        objectPool = FindObjectOfType<ObjectPool>();
+        manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
+        objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         amountVariables = manager.GetNumberOfObjects();
 
         singularWeight = startingWeight / amountVariables;

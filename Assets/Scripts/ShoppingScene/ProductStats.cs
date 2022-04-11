@@ -7,12 +7,19 @@ public class ProductStats : MonoBehaviour
     // Public variables
     public int productID = -1;  // 0 - Phone, 1 - Scam Phone, 2 - Laptop, 3 - Scam Laptop, 4 - Charger, 5 - Scam Charger
 
+    public float speed = 3f;
+
     // Private variables
     private PlayerController player;
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        transform.position -= Vector3.up * Time.deltaTime * speed;
     }
 
     private void FixedUpdate()
@@ -33,6 +40,12 @@ public class ProductStats : MonoBehaviour
         ResetStats();
 
         this.productID = productID;
+    }
+
+    public void RandomSpeed()
+    {
+        float randSpeed = Random.Range(3, 5);
+        this.speed = randSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
