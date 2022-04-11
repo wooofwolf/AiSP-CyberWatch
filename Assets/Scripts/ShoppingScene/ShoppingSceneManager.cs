@@ -21,6 +21,7 @@ public class ShoppingSceneManager : MonoBehaviour
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject objectivesObj;
+    [SerializeField] private GameObject endPanel;
 
     [SerializeField] private GameObject[] instructionsObj; // Array to control instructions
 
@@ -84,6 +85,7 @@ public class ShoppingSceneManager : MonoBehaviour
 
         // Init GUI
         objectivesObj.SetActive(false);
+        endPanel.SetActive(false);
     }
 
     public void SkipStartCutscene()
@@ -239,12 +241,17 @@ public class ShoppingSceneManager : MonoBehaviour
             Debug.Log("You failed...");
         }
 
-        SceneController.INSTANCE.LoadScene(3);
+        endPanel.SetActive(true);
     }
 
     public void LoseGame()
     {
         gameEnded = true;
         objectivesObj.SetActive(false);
+    }
+
+    public void NextMinigame()
+    {
+        SceneController.INSTANCE.LoadScene(3);
     }
 }
