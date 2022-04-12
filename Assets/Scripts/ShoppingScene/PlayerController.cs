@@ -133,7 +133,26 @@ public class PlayerController : MonoBehaviour
                 audioManager.Play(wrongSFX);
                 break;
 
-            case 2: // Laptop
+            case 2: // Warranty Phone
+                ++phonesCaught;
+                phoneObjective.text = phonesCaught + "/3";
+                StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
+                manager.score += 750;
+                CreateParticleEffect();
+
+                if (phonesCaught == 3)
+                {
+                    phoneTick.SetActive(true);
+                    audioManager.Play(objectiveSFX);
+                }
+                else
+                {
+                    audioManager.Play(correctSFX);
+                }
+
+                break;
+
+            case 3: // Laptop
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
@@ -152,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
 
-            case 3: //Broken Laptop
+            case 4: //Broken Laptop
                 if (manager.score != 0)
                 {
                     manager.score -= 250;
@@ -161,7 +180,26 @@ public class PlayerController : MonoBehaviour
                 audioManager.Play(wrongSFX);
                 break;
 
-            case 4: // Charger
+            case 5: // Warranty Laptop
+                ++laptopsCaught;
+                laptopObjective.text = laptopsCaught + "/3";
+                StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
+                manager.score += 750;
+                CreateParticleEffect();
+
+                if (laptopsCaught == 3)
+                {
+                    laptopTick.SetActive(true);
+                    audioManager.Play(objectiveSFX);
+                }
+                else
+                {
+                    audioManager.Play(correctSFX);
+                }
+
+                break;
+
+            case 6: // Charger
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
@@ -180,13 +218,32 @@ public class PlayerController : MonoBehaviour
 
                 break;
 
-            case 5: // Broken Charger
+            case 7: // Broken Charger
                 if (manager.score != 0)
                 {
                     manager.score -= 250;
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
+                break;
+
+            case 8: // Warranty Charger
+                ++chargersCaught;
+                chargerObjective.text = chargersCaught + "/3";
+                StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
+                manager.score += 750;
+                CreateParticleEffect();
+
+                if (chargersCaught == 3)
+                {
+                    chargerTick.SetActive(true);
+                    audioManager.Play(objectiveSFX);
+                }
+                else
+                {
+                    audioManager.Play(correctSFX);
+                }
+
                 break;
         }
     }
