@@ -46,6 +46,7 @@ public class ShoppingSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.INSTANCE.currentShoppingScore = 0;
         counter = 0;
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
@@ -240,7 +241,7 @@ public class ShoppingSceneManager : MonoBehaviour
 
         objectPool.SetAllToInactive();
 
-        GameManager.INSTANCE.shoppingScore1 = score;
+        GameManager.INSTANCE.currentShoppingScore = score;
 
         if (score >= 300 && score < 600)
         {

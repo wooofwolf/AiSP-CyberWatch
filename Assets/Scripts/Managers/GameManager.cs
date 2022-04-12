@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     // FPS Target
     public int FPSTarget = 144;
 
-    public int shoppingScore1;
+    public int globalShoppingScore, currentShoppingScore;
 
     private void Start()
     {
@@ -61,23 +61,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Alpha1))
-        {
-            shoppingScore1 = 1500;
-        }
-        else if(Input.GetKey(KeyCode.Alpha2))
-        {
-            shoppingScore1 = 3000;
-        }
-        else if(Input.GetKey(KeyCode.Alpha3))
-        {
-            shoppingScore1 = 4500;
-        }
-        else if(Input.GetKey(KeyCode.Alpha0))
-        {
-            shoppingScore1 = 0;
-        }
-
         /*
         // If current FPS does not match target, try to get it to be the same.
         if (FPSTarget != Application.targetFrameRate)

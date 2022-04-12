@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int phonesCaught = 0, laptopsCaught = 0, chargersCaught = 0;
 
     // Private variables
-    [SerializeField] private float movementSpeed = 5f;
+    //[SerializeField] private float movementSpeed = 5f;
     [SerializeField] private TextMeshProUGUI phoneObjective, laptopObjective, chargerObjective;
 
     private ShoppingSceneManager manager;

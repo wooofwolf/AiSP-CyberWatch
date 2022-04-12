@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Video;
+using TMPro;
 
 public class Minigame2Manager : MonoBehaviour
 {
+    // Public variables
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI endScoreText;
+
+    public GameObject[] stars;
+
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
 
@@ -21,11 +28,42 @@ public class Minigame2Manager : MonoBehaviour
     private int qnNumber = 0;
     private int correct = 0;
 
+    private int score;
+
     private void Start()
     {
+        score = GameManager.INSTANCE.currentShoppingScore;
+
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
 
         InitGameObjects();
+    }
+
+    private void Update()
+    {
+        scoreText.text = "Score: " + score;
+
+        if (results.activeInHierarchy == true)
+        {
+            endScoreText.text = "Score: " + score;
+
+            if (score >= 150 && score < 300)
+            {
+                stars[0].SetActive(true);
+            }
+            else if (score >= 300 && score < 450)
+            {
+                stars[0].SetActive(true);
+                stars[1].SetActive(true);
+            }
+            else if (score >= 450)
+            {
+                foreach (GameObject gameObject in stars)
+                {
+                    gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
     private void InitGameObjects()
@@ -40,6 +78,11 @@ public class Minigame2Manager : MonoBehaviour
         instructions1.gameObject.SetActive(true);
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
+
+        foreach (GameObject gameObject in stars)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void NextInstruction()
@@ -76,6 +119,8 @@ public class Minigame2Manager : MonoBehaviour
         {
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
             AudioManager.INSTANCE.Play(wrongEffect);
+
+            score -= 100;
         }
         else
         {
@@ -83,6 +128,8 @@ public class Minigame2Manager : MonoBehaviour
 
             ui = Instantiate(tick, buttonPressed.transform.parent.transform);
             AudioManager.INSTANCE.Play(correctEffect);
+
+            score += 150;
         }
 
         yield return new WaitForSeconds(1f);
@@ -118,12 +165,10 @@ public class Minigame2Manager : MonoBehaviour
 
         if (correct == 3)
         {
-            Debug.Log("Jennie Won");
             endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
         }
         else
         {
-            Debug.Log("Jennie Lost");
             endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
         }
 
@@ -135,6 +180,11 @@ public class Minigame2Manager : MonoBehaviour
     {
         endCutscene.gameObject.SetActive(false);
         results.SetActive(true);
+
+        if (score > GameManager.INSTANCE.globalShoppingScore)
+        {
+            GameManager.INSTANCE.globalShoppingScore = score;
+        }
     }
 
     public void BackToMainMenu()

@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
-    public GameObject ShoppingMedal_1, ShoppingMedal_2;
+    public GameObject[] shoppingStars;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
 
-    private int shoppingScore1, shoppingScore2;
+    private int shoppingScore;
 
     private SceneController sceneController;
 
@@ -22,28 +22,33 @@ public class LevelSelectManager : MonoBehaviour
     {
         sceneController = SceneController.INSTANCE;
 
-        shoppingScore1 = GameManager.INSTANCE.shoppingScore1;
+        shoppingScore = GameManager.INSTANCE.globalShoppingScore;
+
+        foreach(GameObject i in shoppingStars)
+        {
+            i.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        shoppingScore1 = GameManager.INSTANCE.shoppingScore1;
+        //shoppingScore = GameManager.INSTANCE.shoppingScore1;
 
-        if (shoppingScore1 >= 1250 && shoppingScore1 < 2500)
+        if (shoppingScore >= 150 && shoppingScore < 300)
         {
-            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 146, 90, 255);
+            shoppingStars[0].SetActive(true);
         }
-        else if (shoppingScore1 >= 2500 && shoppingScore1 < 3500)
+        else if (shoppingScore >= 300 && shoppingScore < 450)
         {
-            ShoppingMedal_1.GetComponent<Image>().color = new Color(192, 192, 192, 255);
+            shoppingStars[0].SetActive(true);
+            shoppingStars[1].SetActive(true);
         }
-        else if (shoppingScore1 >= 3500)
+        else if (shoppingScore >= 450)
         {
-            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 215, 0, 255);
-        }
-        else
-        {
-            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            foreach (GameObject gameObject in shoppingStars)
+            {
+                gameObject.SetActive(true);
+            }
         }
     }
 
