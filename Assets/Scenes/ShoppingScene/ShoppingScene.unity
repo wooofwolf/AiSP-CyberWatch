@@ -966,10 +966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1473521203}
+  music: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
+  endScoreText: {fileID: 0}
+  endText: {fileID: 0}
   gameStarted: 0
   gameEnded: 0
   score: 0
-  music: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
   startingFade: {fileID: 1443317777}
   sceneTransition: {fileID: 2083423914}
   skipButton: {fileID: 2097164442}
