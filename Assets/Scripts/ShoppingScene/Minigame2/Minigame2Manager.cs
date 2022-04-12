@@ -11,7 +11,7 @@ public class Minigame2Manager : MonoBehaviour
 
     [SerializeField] private GameObject minigame, resultsScreen;
     [SerializeField] private VideoPlayer endCutscene;
-    [SerializeField] private GameObject instructions, results;
+    [SerializeField] private GameObject instructions1, instructions2, results;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
@@ -32,13 +32,26 @@ public class Minigame2Manager : MonoBehaviour
         resultsScreen.SetActive(false);
         endCutscene.gameObject.SetActive(false);
         canvasGroup.blocksRaycasts = false;
-        instructions.gameObject.SetActive(true);
+        instructions1.gameObject.SetActive(true);
+        instructions2.gameObject.SetActive(false);
         results.SetActive(false);
+    }
+
+    public void NextInstruction()
+    {
+        instructions1.SetActive(false);
+        instructions2.SetActive(true);
+    }
+
+    public void PrevInstruction()
+    {
+        instructions1.SetActive(true);
+        instructions2.SetActive(false);
     }
 
     public void StartGame()
     {
-        instructions.gameObject.SetActive(false);
+        instructions2.gameObject.SetActive(false);
         canvasGroup.blocksRaycasts = true;
     }
 
