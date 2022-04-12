@@ -10,12 +10,15 @@ public class ShoppingSceneManager : MonoBehaviour
     // Public variables
     public TextMeshProUGUI scoreText;
 
+    public AudioClip music;
+
+    public TextMeshProUGUI endScoreText;
+    public TextMeshProUGUI endText;
+
     [HideInInspector] public bool gameStarted = false;
     [HideInInspector] public bool gameEnded = false;
 
     [HideInInspector] public int score = 0;
-
-    public AudioClip music;
 
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -32,6 +35,8 @@ public class ShoppingSceneManager : MonoBehaviour
     [SerializeField] private float ySpawn;
 
     private int curPage = -1; // Int to control the current page of the instructions
+    private int counter; // Used to count the score up in the end screen.
+
     private ObjectPool objectPool;
     private Gacha gacha;
 
@@ -41,6 +46,7 @@ public class ShoppingSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        counter = 0;
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
         audioManager = AudioManager.INSTANCE;
@@ -58,6 +64,15 @@ public class ShoppingSceneManager : MonoBehaviour
 
         UpdateInstructionVideo();
         UpdateInstructions();
+
+        if (endPanel.activeInHierarchy)
+        {
+            if (counter != score)
+            {
+                counter += 10;
+                endScoreText.text = "Score: " + counter;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -226,23 +241,22 @@ public class ShoppingSceneManager : MonoBehaviour
         objectPool.SetAllToInactive();
 
         GameManager.INSTANCE.shoppingScore1 = score;
-        
-        // Medal System (tbc)
-        if(score >= 1250 && score < 2500)
+
+        if (score >= 300 && score < 600)
         {
-            Debug.Log("Bronze Medal");
+            endText.text = "You can do better than that...";
         }
-        else if (score >= 2500 && score < 3500)
+        else if (score >= 600 && score < 800)
         {
-            Debug.Log("Silver Medal");
+            endText.text = "You did great! But you can do better!";
         }
-        else if (score >= 3500)
+        else if (score >= 800)
         {
-            Debug.Log("Gold Medal");
+            endText.text = "Amazing! You're awesome!";
         }
         else
         {
-            Debug.Log("You failed...");
+            endText.text = "You failed...";
         }
 
         endPanel.SetActive(true);
