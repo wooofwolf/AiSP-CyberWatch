@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log(Mathf.Abs(trackVelocity.x));
 
+        /*
         if (manager.gameEnded == false)
         {
             //Time.timeScale = Mathf.Clamp(Mathf.Abs(trackVelocity.x), 0.25f, 1);
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        */
 
         PlayerMovement();
         CheckWin();

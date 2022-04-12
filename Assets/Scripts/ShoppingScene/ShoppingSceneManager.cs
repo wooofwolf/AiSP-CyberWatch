@@ -221,16 +221,20 @@ public class ShoppingSceneManager : MonoBehaviour
         gameEnded = true;
         objectivesObj.SetActive(false);
 
-        audioManager.StopMusic();
+        //audioManager.StopMusic();
+
+        
+
+        ObjectPool.SHARED_INSTANCE.SetAllToInActive();
 
         GameManager.INSTANCE.shoppingScore1 = score;
         
         // Medal System (tbc)
-        if(score >= 1250 && score <= 2500)
+        if(score >= 1250 && score < 2500)
         {
             Debug.Log("Bronze Medal");
         }
-        else if (score >= 2500 && score <= 3500)
+        else if (score >= 2500 && score < 3500)
         {
             Debug.Log("Silver Medal");
         }

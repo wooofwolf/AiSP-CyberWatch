@@ -23,15 +23,15 @@ public class LevelSelectManager : MonoBehaviour
         sceneController = SceneController.INSTANCE;
 
         shoppingScore1 = GameManager.INSTANCE.shoppingScore1;
-
-        Debug.Log(shoppingScore1);
     }
 
     private void Update()
     {
+        shoppingScore1 = GameManager.INSTANCE.shoppingScore1;
+
         if (shoppingScore1 >= 1250 && shoppingScore1 < 2500)
         {
-            ShoppingMedal_1.GetComponent<Image>().color = new Color(176, 141, 87, 255);
+            ShoppingMedal_1.GetComponent<Image>().color = new Color(255, 146, 90, 255);
         }
         else if (shoppingScore1 >= 2500 && shoppingScore1 < 3500)
         {

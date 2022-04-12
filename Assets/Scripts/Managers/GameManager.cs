@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     // FPS Target
     public int FPSTarget = 144;
-    public int numbers = 0;
 
     public int shoppingScore1;
 
@@ -62,9 +61,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Alpha1))
         {
-            numbers++;
+            shoppingScore1 = 1500;
+        }
+        else if(Input.GetKey(KeyCode.Alpha2))
+        {
+            shoppingScore1 = 3000;
+        }
+        else if(Input.GetKey(KeyCode.Alpha3))
+        {
+            shoppingScore1 = 4500;
+        }
+        else if(Input.GetKey(KeyCode.Alpha0))
+        {
+            shoppingScore1 = 0;
         }
 
         /*

@@ -59,4 +59,15 @@ public class ObjectPool : MonoBehaviour
 
         return noOfObjs;
     }
+
+    public void SetAllToInActive()
+    {
+        for (int i = 0; i < amountToPool; ++i)
+        {
+            if(pooledObjects[i].activeInHierarchy)
+            {
+                pooledObjects[i].SetActive(false);
+            }
+        }
+    }
 }
