@@ -60,13 +60,13 @@ public class ObjectPool : MonoBehaviour
         return noOfObjs;
     }
 
-    public void SetAllToInActive()
+    public void SetAllToInactive()
     {
-        for (int i = 0; i < amountToPool; ++i)
+        foreach (GameObject gameObject in pooledObjects)
         {
-            if(pooledObjects[i].activeInHierarchy)
+            if (gameObject.activeInHierarchy)
             {
-                pooledObjects[i].SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }
