@@ -96,7 +96,7 @@ public class ShoppingSceneManager : MonoBehaviour
         // Init instructions
         if (curPage == -1)
         {
-            instructonsVideo.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Shopping_Instructions.mp4");
+            instructonsVideo.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Instructions_pt1pg1.mp4");
         }
 
         // Init GUI
