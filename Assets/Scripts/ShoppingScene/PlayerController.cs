@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                 ++phonesCaught;
                 phoneObjective.text = phonesCaught + "/3";
                 StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
-                manager.score += 500;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (phonesCaught == 3)
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             case 1: // Broken Phone
                 if (manager.score != 0)
                 {
-                    manager.score -= 250;
+                    manager.score -= 50;
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
-                manager.score += 500;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (laptopsCaught == 3)
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
             case 4: //Broken Laptop
                 if (manager.score != 0)
                 {
-                    manager.score -= 250;
+                    manager.score -= 50;
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
-                manager.score += 500;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (chargersCaught == 3)
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
             case 7: // Broken Charger
                 if (manager.score != 0)
                 {
-                    manager.score -= 250;
+                    manager.score -= 50;
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
