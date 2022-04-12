@@ -146,7 +146,7 @@ public class ShoppingSceneManager : MonoBehaviour
     // Updates instructions array to see which page is currently being shown
     private void UpdateInstructions()
     {
-        if (curPage != -1 && curPage != 2)
+        if (curPage != -1 && curPage != 3)
         {
             instructionsObj[curPage].SetActive(true);
 

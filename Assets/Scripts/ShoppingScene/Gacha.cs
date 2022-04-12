@@ -111,6 +111,7 @@ public class Gacha : MonoBehaviour
         {
             SetCurrentToZero(0);
             SetCurrentToZero(1);
+            SetCurrentToZero(2);
 
             phoneRemoved = true;
         }
@@ -118,36 +119,41 @@ public class Gacha : MonoBehaviour
         {
             SetCurrentToOne(0);
             SetCurrentToOne(1);
+            SetCurrentToOne(2);
 
             phoneRemoved = false;
         }
 
-        if (player.laptopsCaught + objectPool.GetObjectsOnScreen(2) >= 3 && !laptopRemoved)
+        if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) >= 3 && !laptopRemoved)
         {
-            SetCurrentToZero(2);
             SetCurrentToZero(3);
+            SetCurrentToZero(4);
+            SetCurrentToZero(5);
 
             laptopRemoved = true;
         }
-        else if (player.laptopsCaught + objectPool.GetObjectsOnScreen(2) < 3 && laptopRemoved)
+        else if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) < 3 && laptopRemoved)
         {
-            SetCurrentToOne(2);
             SetCurrentToOne(3);
+            SetCurrentToOne(4);
+            SetCurrentToOne(5);
 
             laptopRemoved = false;
         }
 
-        if (player.chargersCaught + objectPool.GetObjectsOnScreen(4) >= 3 && !chargerRemoved)
+        if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) >= 3 && !chargerRemoved)
         {
-            SetCurrentToZero(4);
-            SetCurrentToZero(5);
+            SetCurrentToZero(6);
+            SetCurrentToZero(7);
+            SetCurrentToZero(8);
 
             chargerRemoved = true;
         }
-        else if (player.chargersCaught + objectPool.GetObjectsOnScreen(4) < 3 && chargerRemoved)
+        else if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) < 3 && chargerRemoved)
         {
-            SetCurrentToOne(4);
-            SetCurrentToOne(5);
+            SetCurrentToOne(6);
+            SetCurrentToOne(7);
+            SetCurrentToOne(8);
 
             chargerRemoved = false;
         }
