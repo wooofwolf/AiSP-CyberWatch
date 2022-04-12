@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProductStats : MonoBehaviour
 {
     // Public variables
-    public int productID = -1;  // 0 - Phone, 1 - Scam Phone, 2 - Laptop, 3 - Scam Laptop, 4 - Charger, 5 - Scam Charger
+    public int productID = -1;  // 0 - Phone, 1 - Scam Phone, 2 - Warranty Phone, 3 - Laptop, 4 - Scam Laptop, 5 - Warranty Laptop, 6 - Charger, 7 - Scam Charger, 8 - Warranty Charger
 
     public float speed = 3f;
 

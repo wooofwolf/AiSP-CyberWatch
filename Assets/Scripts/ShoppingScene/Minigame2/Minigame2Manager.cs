@@ -7,6 +7,8 @@ using UnityEngine.Video;
 public class Minigame2Manager : MonoBehaviour
 {
     // Private variables
+    [SerializeField] private GameObject startingFade, sceneTransition;
+
     [SerializeField] private AudioClip correctEffect, wrongEffect;
 
     [SerializeField] private GameObject minigame, resultsScreen;
@@ -28,6 +30,9 @@ public class Minigame2Manager : MonoBehaviour
 
     private void InitGameObjects()
     {
+        startingFade.SetActive(true);
+        sceneTransition.SetActive(false);
+
         minigame.SetActive(true);
         resultsScreen.SetActive(false);
         endCutscene.gameObject.SetActive(false);

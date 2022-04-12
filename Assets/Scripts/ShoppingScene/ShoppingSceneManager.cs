@@ -270,7 +270,8 @@ public class ShoppingSceneManager : MonoBehaviour
 
     public void NextMinigame()
     {
-        SceneController.INSTANCE.LoadScene(3);
+        sceneTransition.SetActive(true);
+        SceneController.INSTANCE.LoadSceneAsync(3);
     }
 
     public void RestartMinigame()
