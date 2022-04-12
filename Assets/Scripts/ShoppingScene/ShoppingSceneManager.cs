@@ -220,8 +220,7 @@ public class ShoppingSceneManager : MonoBehaviour
     {
         gameEnded = true;
         objectivesObj.SetActive(false);
-
-        audioManager.StopMusic();
+        objectPool.SetAllInactive();
 
         GameManager.INSTANCE.shoppingScore1 = score;
         
@@ -255,5 +254,10 @@ public class ShoppingSceneManager : MonoBehaviour
     public void NextMinigame()
     {
         SceneController.INSTANCE.LoadScene(3);
+    }
+
+    public void RestartMinigame()
+    {
+        SceneController.INSTANCE.Retry();
     }
 }

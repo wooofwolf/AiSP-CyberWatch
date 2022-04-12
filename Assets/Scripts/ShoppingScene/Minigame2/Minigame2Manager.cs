@@ -7,6 +7,8 @@ using UnityEngine.Video;
 public class Minigame2Manager : MonoBehaviour
 {
     // Private variables
+    [SerializeField] private AudioClip correctEffect, wrongEffect;
+
     [SerializeField] private GameObject minigame, resultsScreen;
     [SerializeField] private VideoPlayer endCutscene;
     [SerializeField] private GameObject instructions, results;
@@ -55,12 +57,14 @@ public class Minigame2Manager : MonoBehaviour
         if (buttonPressed.transform.parent.CompareTag("ScamPurchase"))
         {
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
+            AudioManager.INSTANCE.Play(wrongEffect);
         }
         else
         {
             ++correct;
 
             ui = Instantiate(tick, buttonPressed.transform.parent.transform);
+            AudioManager.INSTANCE.Play(correctEffect);
         }
 
         yield return new WaitForSeconds(1f);
@@ -88,6 +92,8 @@ public class Minigame2Manager : MonoBehaviour
 
     private void PlayCutscene()
     {
+        AudioManager.INSTANCE.StopMusic();
+
         minigame.SetActive(false);
         resultsScreen.SetActive(true);
         endCutscene.gameObject.SetActive(true);
@@ -116,5 +122,10 @@ public class Minigame2Manager : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneController.INSTANCE.LoadScene(1);
+    }
+
+    public void RestartLevel()
+    {
+        SceneController.INSTANCE.Retry();
     }
 }

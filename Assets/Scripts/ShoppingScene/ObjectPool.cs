@@ -59,4 +59,12 @@ public class ObjectPool : MonoBehaviour
 
         return noOfObjs;
     }
+
+    public void SetAllInactive()
+    {
+        foreach (GameObject gameObject in pooledObjects)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
