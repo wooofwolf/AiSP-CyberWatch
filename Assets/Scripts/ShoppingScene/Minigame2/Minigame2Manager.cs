@@ -176,7 +176,7 @@ public class Minigame2Manager : MonoBehaviour
         }
         else
         {
-            endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
+            endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Lose.mp4");
         }
 
         endCutscene.Play();
