@@ -13,12 +13,14 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject[] stars;
 
+    public GameObject infographic;
+
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
 
-    [SerializeField] private AudioClip correctEffect, wrongEffect;
+    [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
-    [SerializeField] private GameObject minigame, resultsScreen;
+    [SerializeField] private GameObject minigame, resultsScreen, scoreUI;
     [SerializeField] private VideoPlayer endCutscene;
     [SerializeField] private GameObject instructions1, instructions2, results;
     [SerializeField] private CanvasGroup canvasGroup;
@@ -32,6 +34,8 @@ public class Minigame2Manager : MonoBehaviour
 
     private void Start()
     {
+        infographic.SetActive(false);
+
         score = GameManager.INSTANCE.currentShoppingScore;
 
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
@@ -47,16 +51,16 @@ public class Minigame2Manager : MonoBehaviour
         {
             endScoreText.text = "Score: " + score;
 
-            if (score >= 150 && score < 300)
+            if (score >= 600 && score < 750)
             {
                 stars[0].SetActive(true);
             }
-            else if (score >= 300 && score < 450)
+            else if (score >= 750 && score < 900)
             {
                 stars[0].SetActive(true);
                 stars[1].SetActive(true);
             }
-            else if (score >= 450)
+            else if (score >= 900)
             {
                 foreach (GameObject gameObject in stars)
                 {
@@ -78,6 +82,7 @@ public class Minigame2Manager : MonoBehaviour
         instructions1.gameObject.SetActive(true);
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
+        scoreUI.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
@@ -100,6 +105,7 @@ public class Minigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions2.gameObject.SetActive(false);
+        scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
 
@@ -139,14 +145,15 @@ public class Minigame2Manager : MonoBehaviour
         {
             PlayCutscene();
         }
-
         else
         {
             for (int i = 0; i < productLists.Length; ++i)
             {
                 LeanTween.moveLocalY(productLists[i], productLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
+                AudioManager.INSTANCE.Play(swooshEffect);
             }
         }
+
         ++qnNumber;
 
         yield return new WaitForSeconds(1f);
@@ -185,6 +192,11 @@ public class Minigame2Manager : MonoBehaviour
         {
             GameManager.INSTANCE.globalShoppingScore = score;
         }
+    }
+
+    public void ShowInfoGraphic()
+    {
+        infographic.SetActive(true);
     }
 
     public void BackToMainMenu()

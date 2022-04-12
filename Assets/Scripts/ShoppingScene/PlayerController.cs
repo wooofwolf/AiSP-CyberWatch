@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                 ++phonesCaught;
                 phoneObjective.text = phonesCaught + "/3";
                 StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
-                manager.score += 100;
+                manager.score += 50;
                 CreateParticleEffect();
 
                 if (phonesCaught == 3)
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 ++phonesCaught;
                 phoneObjective.text = phonesCaught + "/3";
                 StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
-                manager.score += 750;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (phonesCaught == 3)
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
-                manager.score += 100;
+                manager.score += 50;
                 CreateParticleEffect();
 
                 if (laptopsCaught == 3)
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
-                manager.score += 750;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (laptopsCaught == 3)
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
-                manager.score += 100;
+                manager.score += 50;
                 CreateParticleEffect();
 
                 if (chargersCaught == 3)
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
-                manager.score += 750;
+                manager.score += 100;
                 CreateParticleEffect();
 
                 if (chargersCaught == 3)

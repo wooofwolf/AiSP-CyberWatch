@@ -13,7 +13,8 @@ public class ShoppingSceneManager : MonoBehaviour
     public AudioClip music;
 
     public TextMeshProUGUI endScoreText;
-    public TextMeshProUGUI endText;
+
+    public GameObject infographic;
 
     [HideInInspector] public bool gameStarted = false;
     [HideInInspector] public bool gameEnded = false;
@@ -46,6 +47,7 @@ public class ShoppingSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        infographic.SetActive(false);
         GameManager.INSTANCE.currentShoppingScore = 0;
         counter = 0;
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
@@ -70,7 +72,7 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             if (counter != score)
             {
-                counter += 10;
+                counter += 1;
                 endScoreText.text = "Score: " + counter;
             }
         }
@@ -243,24 +245,12 @@ public class ShoppingSceneManager : MonoBehaviour
 
         GameManager.INSTANCE.currentShoppingScore = score;
 
-        if (score >= 300 && score < 600)
-        {
-            endText.text = "You can do better than that...";
-        }
-        else if (score >= 600 && score < 800)
-        {
-            endText.text = "You did great! But you can do better!";
-        }
-        else if (score >= 800)
-        {
-            endText.text = "Amazing! You're awesome!";
-        }
-        else
-        {
-            endText.text = "You failed...";
-        }
-
         endPanel.SetActive(true);
+    }
+
+    public void ShowInfoGraphic()
+    {
+        infographic.SetActive(true);
     }
 
     public void LoseGame()
