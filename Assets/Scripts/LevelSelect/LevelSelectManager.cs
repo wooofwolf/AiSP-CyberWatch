@@ -34,16 +34,16 @@ public class LevelSelectManager : MonoBehaviour
     {
         //shoppingScore = GameManager.INSTANCE.shoppingScore1;
 
-        if (shoppingScore >= 150 && shoppingScore < 300)
+        if (shoppingScore >= 600 && shoppingScore < 750)
         {
             shoppingStars[0].SetActive(true);
         }
-        else if (shoppingScore >= 300 && shoppingScore < 450)
+        else if (shoppingScore >= 750 && shoppingScore < 900)
         {
             shoppingStars[0].SetActive(true);
             shoppingStars[1].SetActive(true);
         }
-        else if (shoppingScore >= 450)
+        else if (shoppingScore >= 900)
         {
             foreach (GameObject gameObject in shoppingStars)
             {
