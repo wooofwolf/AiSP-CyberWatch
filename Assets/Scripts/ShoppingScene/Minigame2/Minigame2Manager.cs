@@ -15,6 +15,8 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject infographic;
 
+    public GameObject starBG;
+
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
 
@@ -29,6 +31,8 @@ public class Minigame2Manager : MonoBehaviour
 
     private int qnNumber = 0;
     private int correct = 0;
+
+    private int starCounter = 0;
 
     private int score;
 
@@ -51,6 +55,7 @@ public class Minigame2Manager : MonoBehaviour
         {
             endScoreText.text = "Score: " + score;
 
+            /*
             if (score >= 600 && score < 750)
             {
                 stars[0].SetActive(true);
@@ -67,6 +72,18 @@ public class Minigame2Manager : MonoBehaviour
                     gameObject.SetActive(true);
                 }
             }
+            */
+
+            if (starCounter == 0)
+            {
+                Transform child = starBG.transform.GetChild(0).GetComponent<Transform>();
+                if (child.transform.position != new Vector3(0, 0, 0))
+                {
+                    child.transform.position += new Vector3(0, 10, 0);
+                    Debug.Log("Uh oh!");
+                }
+            }
+
         }
     }
 
@@ -126,7 +143,15 @@ public class Minigame2Manager : MonoBehaviour
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
             AudioManager.INSTANCE.Play(wrongEffect);
 
-            score -= 100;
+            
+            if (score <= 50)
+            {
+                score = 0;
+            }
+            else
+            {
+                score -= 100;
+            }
         }
         else
         {

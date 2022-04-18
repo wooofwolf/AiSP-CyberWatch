@@ -72,7 +72,7 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             if (counter != score)
             {
-                counter += 1;
+                counter += 5;
                 endScoreText.text = "Score: " + counter;
             }
         }
