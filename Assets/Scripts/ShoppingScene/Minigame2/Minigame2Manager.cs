@@ -14,6 +14,8 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject[] stars;
 
+    public GameObject confettiParticle;
+
     public GameObject infographic;
 
     public Slider scoreSlider;
@@ -42,28 +44,13 @@ public class Minigame2Manager : MonoBehaviour
 
         InitGameObjects();
 
-        GameManager.INSTANCE.currentShoppingScore = 500;
+        //GameManager.INSTANCE.currentShoppingScore = 500;
 
         score = GameManager.INSTANCE.currentShoppingScore;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (localScore >= 900)
-        {
-            stars[2].SetActive(true);
-        }
-        else if (localScore >= 750)
-        {
-            stars[1].SetActive(true);
-        }
-        else if (localScore >= 600)
-        {
-            stars[0].SetActive(true);
-        }
-
-        scoreText.text = "Score: " + score;
-
         if (results.activeInHierarchy == true)
         {
             endScoreText.text = "Total Score: " + localScore;
@@ -76,10 +63,30 @@ public class Minigame2Manager : MonoBehaviour
             }
             else
             {
-
+                confettiParticle.SetActive(true);
             }
-
         }
+    }
+
+    private void Update()
+    {
+        if (localScore >= 900)
+        {
+            stars[2].SetActive(true);
+            LeanTween.scale(stars[2], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+        }
+        else if (localScore >= 750)
+        {
+            stars[1].SetActive(true);
+            LeanTween.scale(stars[1], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+        }
+        else if (localScore >= 600)
+        {
+            stars[0].SetActive(true);
+            LeanTween.scale(stars[0], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+        }
+
+        scoreText.text = "Score: " + score;
     }
 
     private void InitGameObjects()
@@ -95,6 +102,7 @@ public class Minigame2Manager : MonoBehaviour
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
         scoreUI.SetActive(false);
+        confettiParticle.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
