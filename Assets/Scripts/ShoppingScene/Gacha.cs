@@ -107,7 +107,7 @@ public class Gacha : MonoBehaviour
 
     public void UpdateWeights()
     {
-        if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) >= 3 && !phoneRemoved)
+        if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) + objectPool.GetObjectsOnScreen(2) >= 3 && !phoneRemoved)
         {
             SetCurrentToZero(0);
             SetCurrentToZero(1);
@@ -115,7 +115,7 @@ public class Gacha : MonoBehaviour
 
             phoneRemoved = true;
         }
-        else if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) < 3 && phoneRemoved)
+        else if (player.phonesCaught + objectPool.GetObjectsOnScreen(0) + objectPool.GetObjectsOnScreen(2) < 3 && phoneRemoved)
         {
             SetCurrentToOne(0);
             SetCurrentToOne(1);
@@ -124,7 +124,7 @@ public class Gacha : MonoBehaviour
             phoneRemoved = false;
         }
 
-        if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) >= 3 && !laptopRemoved)
+        if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) + objectPool.GetObjectsOnScreen(5) >= 3 && !laptopRemoved)
         {
             SetCurrentToZero(3);
             SetCurrentToZero(4);
@@ -132,7 +132,7 @@ public class Gacha : MonoBehaviour
 
             laptopRemoved = true;
         }
-        else if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) < 3 && laptopRemoved)
+        else if (player.laptopsCaught + objectPool.GetObjectsOnScreen(3) + objectPool.GetObjectsOnScreen(5) < 3 && laptopRemoved)
         {
             SetCurrentToOne(3);
             SetCurrentToOne(4);
@@ -141,7 +141,7 @@ public class Gacha : MonoBehaviour
             laptopRemoved = false;
         }
 
-        if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) >= 3 && !chargerRemoved)
+        if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) + objectPool.GetObjectsOnScreen(8) >= 3 && !chargerRemoved)
         {
             SetCurrentToZero(6);
             SetCurrentToZero(7);
@@ -149,7 +149,7 @@ public class Gacha : MonoBehaviour
 
             chargerRemoved = true;
         }
-        else if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) < 3 && chargerRemoved)
+        else if (player.chargersCaught + objectPool.GetObjectsOnScreen(6) + objectPool.GetObjectsOnScreen(8) < 3 && chargerRemoved)
         {
             SetCurrentToOne(6);
             SetCurrentToOne(7);
