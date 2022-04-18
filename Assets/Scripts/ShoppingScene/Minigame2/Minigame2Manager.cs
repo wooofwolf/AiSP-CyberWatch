@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.UI;
 
 public class Minigame2Manager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject infographic;
 
-    public GameObject starBG;
+    public Slider scoreSlider;
 
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -31,57 +32,51 @@ public class Minigame2Manager : MonoBehaviour
 
     private int qnNumber = 0;
     private int correct = 0;
-
-    private int starCounter = 0;
-
-    private int score;
+    private int localScore = 0, score;
 
     private void Start()
     {
         infographic.SetActive(false);
 
-        score = GameManager.INSTANCE.currentShoppingScore;
-
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
 
         InitGameObjects();
+
+        GameManager.INSTANCE.currentShoppingScore = 500;
+
+        score = GameManager.INSTANCE.currentShoppingScore;
     }
 
     private void Update()
     {
+        if (localScore >= 900)
+        {
+            stars[2].SetActive(true);
+        }
+        else if (localScore >= 750)
+        {
+            stars[1].SetActive(true);
+        }
+        else if (localScore >= 600)
+        {
+            stars[0].SetActive(true);
+        }
+
         scoreText.text = "Score: " + score;
 
         if (results.activeInHierarchy == true)
         {
-            endScoreText.text = "Score: " + score;
+            endScoreText.text = "Total Score: " + localScore;
 
-            /*
-            if (score >= 600 && score < 750)
+            if (localScore != GameManager.INSTANCE.globalShoppingScore)
             {
-                stars[0].SetActive(true);
-            }
-            else if (score >= 750 && score < 900)
-            {
-                stars[0].SetActive(true);
-                stars[1].SetActive(true);
-            }
-            else if (score >= 900)
-            {
-                foreach (GameObject gameObject in stars)
-                {
-                    gameObject.SetActive(true);
-                }
-            }
-            */
+                localScore += 10;
 
-            if (starCounter == 0)
+                scoreSlider.value = Mathf.Lerp(0, localScore, 1.0f);
+            }
+            else
             {
-                Transform child = starBG.transform.GetChild(0).GetComponent<Transform>();
-                if (child.transform.position != new Vector3(0, 0, 0))
-                {
-                    child.transform.position += new Vector3(0, 10, 0);
-                    Debug.Log("Uh oh!");
-                }
+
             }
 
         }
@@ -143,7 +138,6 @@ public class Minigame2Manager : MonoBehaviour
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
             AudioManager.INSTANCE.Play(wrongEffect);
 
-            
             if (score <= 50)
             {
                 score = 0;
