@@ -52,6 +52,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource MusicSource;
     public AudioSource EffectsSource;
 
+    // Global audio clips.
+    public AudioClip buttonHover;
+
     void Start()
     {
         if (GameObject.Find("MusicSource") != null)
@@ -82,5 +85,11 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         MusicSource.Stop();
+    }
+
+    private void OnMouseEnter()
+    {
+        EffectsSource.clip = buttonHover;
+        EffectsSource.Play();
     }
 }
