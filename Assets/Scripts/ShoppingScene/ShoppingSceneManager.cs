@@ -63,6 +63,9 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             // Hide skip
             skipButton.SetActive(false);
+
+            // Prepare next video
+            instructonsVideo.Prepare();
         }
 
         UpdateInstructionVideo();
@@ -92,6 +95,7 @@ public class ShoppingSceneManager : MonoBehaviour
         // Init cutscene
         cutscene.gameObject.SetActive(true);
         cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4");
+        cutscene.Prepare();
         cutscene.loopPointReached += OnStartCutsceneEnd;
         skipButton.SetActive(true);
 

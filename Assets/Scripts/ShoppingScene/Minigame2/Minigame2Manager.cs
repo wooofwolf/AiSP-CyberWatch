@@ -208,9 +208,20 @@ public class Minigame2Manager : MonoBehaviour
         {
             endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Lose.mp4");
         }
-
-        endCutscene.Play();
+        StartCoroutine(PrepareCutscene(endCutscene));
         endCutscene.loopPointReached += OnCutsceneEnd;
+    }
+
+    private IEnumerator PrepareCutscene(VideoPlayer vp)
+    {
+        vp.Prepare();
+
+        while (!vp.isPrepared)
+        {
+            yield return null;
+        }
+
+        vp.Play();
     }
 
     private void OnCutsceneEnd(VideoPlayer videoPlayer)
