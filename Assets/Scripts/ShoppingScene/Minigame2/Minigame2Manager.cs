@@ -32,19 +32,17 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
 
+    private bool star1Anim = false, star2Anim = false, star3Anim = false;
+
     private int qnNumber = 0;
     private int correct = 0;
     private int localScore = 0, score;
 
     private void Start()
     {
-        infographic.SetActive(false);
-
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
 
         InitGameObjects();
-
-        //GameManager.INSTANCE.currentShoppingScore = 500;
 
         score = GameManager.INSTANCE.currentShoppingScore;
     }
@@ -55,11 +53,11 @@ public class Minigame2Manager : MonoBehaviour
         {
             endScoreText.text = "Total Score: " + localScore;
 
-            if (localScore != GameManager.INSTANCE.globalShoppingScore)
+            if (localScore != score)
             {
                 localScore += 10;
 
-                scoreSlider.value = Mathf.Lerp(0, localScore, 1.0f);
+                scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
             }
             else
             {
@@ -75,18 +73,30 @@ public class Minigame2Manager : MonoBehaviour
     {
         if (localScore >= 900)
         {
-            stars[2].SetActive(true);
-            LeanTween.scale(stars[2], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+            if (star3Anim != true)
+            {
+                stars[2].SetActive(true);
+                stars[2].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star3Anim = true;
+            }
         }
         else if (localScore >= 750)
         {
-            stars[1].SetActive(true);
-            LeanTween.scale(stars[1], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+            if (star2Anim != true)
+            {
+                stars[1].SetActive(true);
+                stars[1].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star2Anim = true;
+            }
         }
         else if (localScore >= 600)
         {
-            stars[0].SetActive(true);
-            LeanTween.scale(stars[0], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+            if (star1Anim != true)
+            {
+                stars[0].SetActive(true);
+                stars[0].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star1Anim = true;
+            }
         }
 
         scoreText.text = "Score: " + score;
@@ -94,6 +104,10 @@ public class Minigame2Manager : MonoBehaviour
 
     private void InitGameObjects()
     {
+        star1Anim = false;
+        star2Anim = false;
+        star3Anim = false;
+
         startingFade.SetActive(true);
         sceneTransition.SetActive(false);
 
@@ -106,6 +120,7 @@ public class Minigame2Manager : MonoBehaviour
         results.SetActive(false);
         scoreUI.SetActive(false);
         confettiParticle.SetActive(false);
+        infographic.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
