@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour
     // Private variables
     //[SerializeField] private float movementSpeed = 5f;
     [SerializeField] private TextMeshProUGUI phoneObjective, laptopObjective, chargerObjective;
+    [SerializeField] private Sprite neutral, happy, sad;
+    [SerializeField] private SpriteRenderer currentSprite;
 
     private ShoppingSceneManager manager;
     private AudioManager audioManager;
     private Rigidbody2D rb2d;
+    private ScoreSpawner scoreSpawner;
 
     private bool facingRight = true;
 
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
         manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
         audioManager = AudioManager.INSTANCE;
         rb2d = GetComponent<Rigidbody2D>();
+        currentSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        scoreSpawner = GameObject.Find("CurrentSceneManager").GetComponent<ScoreSpawner>();
 
         phoneObjective.text = "0/3";
         laptopObjective.text = "0/3";
@@ -122,6 +127,9 @@ public class PlayerController : MonoBehaviour
                     audioManager.Play(correctSFX);
                 }
 
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+50");
+
                 break;
 
             case 1: // Broken Phone
@@ -131,6 +139,10 @@ public class PlayerController : MonoBehaviour
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
+
+                StartCoroutine(ChangeExpressions(2));
+                scoreSpawner.SpawnScore(Color.red, "-50");
+
                 break;
 
             case 2: // Warranty Phone
@@ -149,6 +161,9 @@ public class PlayerController : MonoBehaviour
                 {
                     audioManager.Play(correctSFX);
                 }
+
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+100");
 
                 break;
 
@@ -169,6 +184,9 @@ public class PlayerController : MonoBehaviour
                     audioManager.Play(correctSFX);
                 }
 
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+50");
+
                 break;
 
             case 4: //Broken Laptop
@@ -178,6 +196,10 @@ public class PlayerController : MonoBehaviour
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
+
+                StartCoroutine(ChangeExpressions(2));
+                scoreSpawner.SpawnScore(Color.red, "-50");
+
                 break;
 
             case 5: // Warranty Laptop
@@ -196,6 +218,9 @@ public class PlayerController : MonoBehaviour
                 {
                     audioManager.Play(correctSFX);
                 }
+
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+100");
 
                 break;
 
@@ -216,6 +241,9 @@ public class PlayerController : MonoBehaviour
                     audioManager.Play(correctSFX);
                 }
 
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+50");
+
                 break;
 
             case 7: // Broken Charger
@@ -225,6 +253,10 @@ public class PlayerController : MonoBehaviour
                 }
                 StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
+
+                StartCoroutine(ChangeExpressions(2));
+                scoreSpawner.SpawnScore(Color.red, "-50");
+
                 break;
 
             case 8: // Warranty Charger
@@ -244,8 +276,28 @@ public class PlayerController : MonoBehaviour
                     audioManager.Play(correctSFX);
                 }
 
+                StartCoroutine(ChangeExpressions(1));
+                scoreSpawner.SpawnScore(Color.green, "+100");
+
                 break;
         }
+    }
+
+    private IEnumerator ChangeExpressions(int i)
+    {
+        switch (i)
+        {
+            case 1: // Happy
+                currentSprite.sprite = happy;
+                break;
+            case 2: // Sad
+                currentSprite.sprite = sad;
+                break;
+        }
+
+        yield return new WaitForSecondsRealtime(0.6f);
+
+        currentSprite.sprite = neutral;
     }
 
     public void CreateParticleEffect()
@@ -256,10 +308,9 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator BlinkColorGUI(TextMeshProUGUI text, Color color)
     {
-        Color originalColor = text.color;
         text.color = color;
         yield return new WaitForSecondsRealtime(0.6f);
-        text.color = originalColor;
+        text.color = Color.white;
     }
 
     private void CheckWin()
