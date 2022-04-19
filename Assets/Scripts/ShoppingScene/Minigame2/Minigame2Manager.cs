@@ -63,7 +63,10 @@ public class Minigame2Manager : MonoBehaviour
             }
             else
             {
-                confettiParticle.SetActive(true);
+                if (score >= 600)
+                {
+                    confettiParticle.SetActive(true);
+                }
             }
         }
     }
@@ -197,7 +200,7 @@ public class Minigame2Manager : MonoBehaviour
         resultsScreen.SetActive(true);
         endCutscene.gameObject.SetActive(true);
 
-        if (correct == 3)
+        if (score >= 600)
         {
             endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
         }

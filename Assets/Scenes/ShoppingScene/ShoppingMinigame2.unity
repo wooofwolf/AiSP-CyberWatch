@@ -1771,6 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicSource: {fileID: 488056570}
   EffectsSource: {fileID: 556818483}
+  buttonHover: {fileID: 0}
 --- !u!114 &554145633
 MonoBehaviour:
   m_ObjectHideFlags: 0
