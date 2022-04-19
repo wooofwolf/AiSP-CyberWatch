@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.UI;
 
 public class Minigame2Manager : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject[] stars;
 
+    public GameObject confettiParticle;
+
     public GameObject infographic;
+
+    public Slider scoreSlider;
 
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -29,45 +34,59 @@ public class Minigame2Manager : MonoBehaviour
 
     private int qnNumber = 0;
     private int correct = 0;
-
-    private int score;
+    private int localScore = 0, score;
 
     private void Start()
     {
         infographic.SetActive(false);
 
-        score = GameManager.INSTANCE.currentShoppingScore;
-
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
 
         InitGameObjects();
+
+        //GameManager.INSTANCE.currentShoppingScore = 500;
+
+        score = GameManager.INSTANCE.currentShoppingScore;
+    }
+
+    private void FixedUpdate()
+    {
+        if (results.activeInHierarchy == true)
+        {
+            endScoreText.text = "Total Score: " + localScore;
+
+            if (localScore != GameManager.INSTANCE.globalShoppingScore)
+            {
+                localScore += 10;
+
+                scoreSlider.value = Mathf.Lerp(0, localScore, 1.0f);
+            }
+            else
+            {
+                confettiParticle.SetActive(true);
+            }
+        }
     }
 
     private void Update()
     {
-        scoreText.text = "Score: " + score;
-
-        if (results.activeInHierarchy == true)
+        if (localScore >= 900)
         {
-            endScoreText.text = "Score: " + score;
-
-            if (score >= 600 && score < 750)
-            {
-                stars[0].SetActive(true);
-            }
-            else if (score >= 750 && score < 900)
-            {
-                stars[0].SetActive(true);
-                stars[1].SetActive(true);
-            }
-            else if (score >= 900)
-            {
-                foreach (GameObject gameObject in stars)
-                {
-                    gameObject.SetActive(true);
-                }
-            }
+            stars[2].SetActive(true);
+            LeanTween.scale(stars[2], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
         }
+        else if (localScore >= 750)
+        {
+            stars[1].SetActive(true);
+            LeanTween.scale(stars[1], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+        }
+        else if (localScore >= 600)
+        {
+            stars[0].SetActive(true);
+            LeanTween.scale(stars[0], new Vector3(1,1,1), 1.0f).setEaseOutExpo();
+        }
+
+        scoreText.text = "Score: " + score;
     }
 
     private void InitGameObjects()
@@ -83,6 +102,7 @@ public class Minigame2Manager : MonoBehaviour
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
         scoreUI.SetActive(false);
+        confettiParticle.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
@@ -126,7 +146,14 @@ public class Minigame2Manager : MonoBehaviour
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
             AudioManager.INSTANCE.Play(wrongEffect);
 
-            score -= 100;
+            if (score <= 50)
+            {
+                score = 0;
+            }
+            else
+            {
+                score -= 100;
+            }
         }
         else
         {
