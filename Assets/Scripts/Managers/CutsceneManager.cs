@@ -8,9 +8,10 @@ public class CutsceneManager : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] internal GameObject cutsceneObj;
+    [SerializeField] internal GameObject skipButton;
 
-    internal bool isPlaying = false;
-    internal bool hasPlayed = false;
+    public bool isPlaying = false;
+    public bool hasPlayed = false;
 
     public void StartCutscene(string url)
     {
@@ -29,6 +30,7 @@ public class CutsceneManager : MonoBehaviour
 
     private void FinishCutscene(VideoPlayer videoPlayer)
     {
+        videoPlayer.Stop();
         isPlaying = false;
         hasPlayed = true;
     }
@@ -36,5 +38,13 @@ public class CutsceneManager : MonoBehaviour
     public void SkipCutscene(int frame)
     {
         videoPlayer.frame = frame;
+        skipButton.SetActive(false);
+    }
+
+    public void ResetCutscene()
+    {
+        videoPlayer.Stop();
+        isPlaying = false;
+        hasPlayed = false;
     }
 }
