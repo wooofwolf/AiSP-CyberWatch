@@ -1,66 +1,122 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    //public Image actorImage;
-
-    // Public Variables
-    public TextMeshProUGUI actorName;
-    public TextMeshProUGUI messageText;
-
-    public GameObject dialogueBox;
-
-    public GameObject continueSprite;
-
-    [HideInInspector] public GameObject choiceSelection;
-    [HideInInspector] public bool hasChoices;
+    [HideInInspector] public bool isReady = false;
     [HideInInspector] public bool isActive = false;
 
-    // Private Variables
-    private Message[] currentMessages;
-    private Actor[] currentActors;
-    private int activeMessage = 0;
+    [Header("Text File")]
+    [SerializeField] private TextAsset dialogueFile;
 
-    private bool isWriting;
+    [Header("Icon Assets")]
+    [SerializeField] private string[] iconList;
+
+    [Header("GUI")]
+    [SerializeField] private TextMeshProUGUI actorName;
+    [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject continueSprite;
+    [SerializeField] private RawImage icon;
+
+    [Header("SFX")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private AudioClip audioClip;
+
+    // Components in file
+    private readonly List<Actor> actorList = new List<Actor>();
+    private readonly List<Message> messageList = new List<Message>();
+    public Texture2D[] textureList;
+
+    // Displaying dialogue
+    private int activeMessage = 0;
+    internal bool isWriting = false;
 
     private void Start()
     {
-        dialogueBox.transform.localScale = new Vector3(0, 0, 0);
+        if (dialogueFile == null)
+        {
+            Debug.LogWarning("Dialogue file missing.");
+        }
+        else
+        {
+            ReadComponentsFromFile();
+            StartCoroutine(GetIcons());
+        }
     }
 
-    public void StartDialogue(Message[] messages, Actor[] actors)
+    private void ReadComponentsFromFile()
     {
-        if (choiceSelection != null)
+        string str = dialogueFile.text;
+        string[] strArray = Regex.Split(str, "\n|\r|\r\n").Where(s => s != string.Empty).ToArray();
+
+        if (strArray[0].Contains("[Actors]"))
         {
-            choiceSelection.SetActive(false);
+            string allActors = strArray[0].Remove(0, 8);
+            string[] indivActors = Regex.Split(allActors, ",");
+            for (int i = 0; i < indivActors.Length; ++i)
+            {
+                Actor actor = new Actor() { name = indivActors[i] };
+                actorList.Add(actor);
+            }
+        }
+        else
+        {
+            Debug.LogError("No Actors Found");
         }
 
-        LeanTween.scale(dialogueBox, new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+        for (int i = 1; i < strArray.Length; ++i)
+        {
+            string[] messageArr = Regex.Split(strArray[i], ":");
+            Message message = new Message() { actorID = int.Parse(messageArr[0]), messages = messageArr[1] };
+            messageList.Add(message);
+        }
+    }
 
-        currentMessages = messages;
-        currentActors = actors;
+    private IEnumerator GetIcons()
+    {
+        textureList = new Texture2D[actorList.Count];
+
+        for (int i = 0; i < actorList.Count; ++i)
+        {
+            Texture2D tex = new Texture2D(2, 2);
+            string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Icons", iconList[i]);
+            using (UnityWebRequest unityWebRequest = UnityWebRequest.Get(filePath))
+            {
+                yield return unityWebRequest.SendWebRequest();
+
+                switch (unityWebRequest.result)
+                {
+                    case UnityWebRequest.Result.Success:
+                        tex.LoadImage(unityWebRequest.downloadHandler.data);
+                        icon.texture = tex;
+                        break;
+
+                    default:
+                        Debug.Log("UnityWebRequest failed.");
+                        break;
+                }
+            }
+            textureList[i] = tex;
+        }
+
+        isReady = true;
+    }
+
+    public void StartDialogue()
+    {
+        LeanTween.scale(dialogueBox, new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
         activeMessage = 0;
 
         isActive = true;
 
         DisplayMessage();
-    }
-
-    public void DisplayMessage()
-    {
-        continueSprite.SetActive(false);
-
-        Message messageToDisplay = currentMessages[activeMessage];
-        //messageText.text = messageToDisplay.messages;
-        StartCoroutine(WriteMessageOut(messageToDisplay.messages));
-
-        Actor actorToDisplay = currentActors[messageToDisplay.actorID];
-        actorName.text = actorToDisplay.name;
-        //actorImage.sprite = actorToDisplay.sprite;
     }
 
     public void NextMessage()
@@ -69,46 +125,46 @@ public class DialogueManager : MonoBehaviour
         {
             if (isWriting)
             {
-                // If text is printing, skip the printing and finish the sentence
                 StopAllCoroutines();
-                messageText.text = currentMessages[activeMessage].messages;
+                messageText.text = messageList.ToArray()[activeMessage].messages;
                 continueSprite.SetActive(true);
 
                 isWriting = false;
             }
             else
             {
-                // Go to next message
                 activeMessage++;
-                // If current message is not the end
-                if (activeMessage < currentMessages.Length)
+                if (activeMessage < messageList.ToArray().Length)
                 {
                     DisplayMessage();
                 }
                 else
                 {
-                    //Debug.Log("Conversation Ended!");
-                    // If there are choices, continue with choice. Otherwise, end the dialogue
-                    if (hasChoices)
-                    {
-                        choiceSelection.SetActive(true);
-                        isActive = false;
-                    }
-                    else
-                    {
-                        LeanTween.scale(dialogueBox, new Vector3(0, 0, 0), 1.0f).setEaseOutExpo();
-                        isActive = false;
-                    }
+                    LeanTween.scale(dialogueBox, new Vector3(0, 0, 0), 1.0f).setEaseOutExpo();
+                    isActive = false;
                 }
             }
         }
     }
 
-    // Writes out the text letter by letter
-    IEnumerator WriteMessageOut(string messsageText)
+    private void DisplayMessage()
     {
+        continueSprite.SetActive(false);
 
+        Message messageToDisplay = messageList.ToArray()[activeMessage];
+        StartCoroutine(WriteMessageOut(messageToDisplay.messages));
+
+        Actor actorToDisplay = actorList.ToArray()[messageToDisplay.actorID];
+        actorName.text = actorToDisplay.name;
+
+        icon.texture = textureList[messageToDisplay.actorID];
+    }
+
+    private IEnumerator WriteMessageOut(string messsageText)
+    {
         isWriting = true;
+
+        audioManager.PlayDialogueClip(audioClip);
 
         string sentence = messsageText;
         messageText.text = "";
@@ -123,4 +179,22 @@ public class DialogueManager : MonoBehaviour
 
         isWriting = false;
     }
+}
+
+[System.Serializable]
+public class Message
+{
+    public int actorID;
+
+    [TextArea(2, 4)]
+    public string messages;
+
+    //public string[] messages;
+}
+
+[System.Serializable]
+public class Actor
+{
+    public string name;
+    //public Sprite avatar;
 }

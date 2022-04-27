@@ -50,7 +50,11 @@ public class AudioManager : MonoBehaviour
 
     // Audio players components.
     public AudioSource MusicSource;
-    public AudioSource EffectsSource;
+    public List<AudioSource> EffectsSource;
+    public AudioSource DialogueSource;
+
+    // Components
+    [SerializeField] private DialogueManager dialogueManager;
 
     // Global audio clips.
     public AudioClip buttonHover;
@@ -61,18 +65,46 @@ public class AudioManager : MonoBehaviour
         {
             MusicSource = GameObject.Find("MusicSource").GetComponent<AudioSource>();
         }
+    }
 
-        if (GameObject.Find("EffectSource") != null)
+    private void Update()
+    {
+        // Dialogue
+        if (!dialogueManager.isWriting)
         {
-            EffectsSource = GameObject.Find("EffectSource").GetComponent<AudioSource>();
+            DialogueSource.Stop();
+        }
+
+        // Effects
+        for (int i = 0; i < EffectsSource.Count; ++i)
+        {
+            if (!EffectsSource[i].isPlaying)
+            {
+                Destroy(EffectsSource[i].gameObject);
+                EffectsSource.Remove(EffectsSource[i]);
+            }
         }
     }
 
     // Play a single clip through the sound effects source.
     public void Play(AudioClip clip)
     {
-        EffectsSource.clip = clip;
-        EffectsSource.Play();
+        // Create new gameobject
+        GameObject soundEffect = new GameObject("Sound Effect");
+        AudioSource source = soundEffect.AddComponent<AudioSource>();
+        EffectsSource.Add(source);
+
+        source.clip = clip;
+        source.Play();
+    }
+
+    public void PlayDialogueClip(AudioClip clip)
+    {
+        if (dialogueManager.isWriting && !DialogueSource.isPlaying)
+        {
+            DialogueSource.clip = clip;
+            DialogueSource.Play();
+        }
     }
 
     // Play a single clip through the music source.
@@ -89,7 +121,12 @@ public class AudioManager : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        EffectsSource.clip = buttonHover;
-        EffectsSource.Play();
+        // Create new gameobject
+        GameObject soundEffect = new GameObject("Sound Effect");
+        AudioSource source = soundEffect.AddComponent<AudioSource>();
+        EffectsSource.Add(source);
+
+        source.clip = buttonHover;
+        source.Play();
     }
 }

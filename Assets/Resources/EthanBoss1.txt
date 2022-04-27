@@ -1,0 +1,8 @@
+[Actors]Ethan,???,Spyware
+0:I need to find all the viruses in my computer!
+1:Muahahaha
+0:Who's there?
+1:It is I...
+2:Your worst nightmare!
+2:I have come to steal your information!
+0:Not if I can help it!
