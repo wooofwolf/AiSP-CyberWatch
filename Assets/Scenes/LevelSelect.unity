@@ -1584,8 +1584,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283914071
-  m_fontColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+    rgba: 4293388263
+  m_fontColor: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1682,8 +1682,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66a0d62d8a92c41b107d09a8d825ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasDialogue: 0
   MusicSource: {fileID: 1301401234}
-  EffectsSource: {fileID: 1260760775}
+  EffectsSource:
+  - {fileID: 1260760775}
+  DialogueSource: {fileID: 0}
+  dialogueManager: {fileID: 0}
   buttonHover: {fileID: 8300000, guid: 0cdafc8bbad4d7c49bbcd14300b444a2, type: 3}
 --- !u!114 &1157469007
 MonoBehaviour:
@@ -2198,7 +2202,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1364879715}
   m_OnClick:
     m_PersistentCalls:
@@ -2210,7 +2214,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

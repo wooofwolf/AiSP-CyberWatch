@@ -52,7 +52,7 @@ public class ShoppingSceneManager : MonoBehaviour
         counter = 0;
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
-        audioManager = AudioManager.INSTANCE;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         InitGameObjects();
     }

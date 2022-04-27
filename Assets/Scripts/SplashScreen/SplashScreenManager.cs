@@ -17,7 +17,7 @@ public class SplashScreenManager : MonoBehaviour
     {
         sceneController = SceneController.INSTANCE;
         gameManager = GameManager.INSTANCE;
-        audioManager = AudioManager.INSTANCE;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         sceneController.LoadSceneAsync(1);
     }

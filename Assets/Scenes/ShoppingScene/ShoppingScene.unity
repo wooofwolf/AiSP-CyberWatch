@@ -2855,8 +2855,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66a0d62d8a92c41b107d09a8d825ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasDialogue: 0
   MusicSource: {fileID: 673133120}
-  EffectsSource: {fileID: 2015830972}
+  EffectsSource:
+  - {fileID: 2015830972}
+  DialogueSource: {fileID: 0}
+  dialogueManager: {fileID: 0}
   buttonHover: {fileID: 8300000, guid: 0cdafc8bbad4d7c49bbcd14300b444a2, type: 3}
 --- !u!114 &1391619665
 MonoBehaviour:

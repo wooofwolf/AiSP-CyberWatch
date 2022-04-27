@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
-        audioManager = AudioManager.INSTANCE;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rb2d = GetComponent<Rigidbody2D>();
         currentSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         scoreSpawner = GameObject.Find("CurrentSceneManager").GetComponent<ScoreSpawner>();

@@ -38,8 +38,11 @@ public class Minigame2Manager : MonoBehaviour
     private int correct = 0;
     private int localScore = 0, score;
 
+    private AudioManager audioManager;
+
     private void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         gameObject.GetComponent<ProductRandomizer>().RandomizeProducts(productLists);
 
         InitGameObjects();
@@ -162,7 +165,7 @@ public class Minigame2Manager : MonoBehaviour
         if (buttonPressed.transform.parent.CompareTag("ScamPurchase"))
         {
             ui = Instantiate(cross, buttonPressed.transform.parent.transform);
-            AudioManager.INSTANCE.Play(wrongEffect);
+            audioManager.Play(wrongEffect);
 
             if (score <= 50)
             {
@@ -178,7 +181,7 @@ public class Minigame2Manager : MonoBehaviour
             ++correct;
 
             ui = Instantiate(tick, buttonPressed.transform.parent.transform);
-            AudioManager.INSTANCE.Play(correctEffect);
+            audioManager.Play(correctEffect);
 
             score += 150;
         }
@@ -195,7 +198,7 @@ public class Minigame2Manager : MonoBehaviour
             for (int i = 0; i < productLists.Length; ++i)
             {
                 LeanTween.moveLocalY(productLists[i], productLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
-                AudioManager.INSTANCE.Play(swooshEffect);
+                audioManager.Play(swooshEffect);
             }
         }
 
@@ -209,7 +212,7 @@ public class Minigame2Manager : MonoBehaviour
 
     private void PlayCutscene()
     {
-        AudioManager.INSTANCE.StopMusic();
+        audioManager.StopMusic();
 
         minigame.SetActive(false);
         resultsScreen.SetActive(true);
