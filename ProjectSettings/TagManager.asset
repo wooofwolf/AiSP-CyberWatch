@@ -6,6 +6,9 @@ TagManager:
   tags:
   - RealPurchase
   - ScamPurchase
+  - MalwareEnemy
+  - MalwarePlayerBullet
+  - MalwareEnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -3916,7 +3916,7 @@ MonoBehaviour:
   neutral: {fileID: 21300000, guid: 93026fd212707e441bcb2fee1e58e75d, type: 3}
   happy: {fileID: 21300000, guid: 8c40030546f813d489550209b03e561d, type: 3}
   sad: {fileID: 21300000, guid: f126d40de2866af4db41d39e614c111a, type: 3}
-  currentSprite: {fileID: 0}
+  currentSprite: {fileID: 1274896075}
 --- !u!251 &1821181453
 PlatformEffector2D:
   m_ObjectHideFlags: 0
