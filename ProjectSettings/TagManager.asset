@@ -9,6 +9,8 @@ TagManager:
   - MalwareEnemy
   - MalwarePlayerBullet
   - MalwareEnemyBullet
+  - RealVirus
+  - FakeVirus
   layers:
   - Default
   - TransparentFX
