@@ -28,6 +28,8 @@ public class LevelSelectManager : MonoBehaviour
         {
             i.SetActive(false);
         }
+
+        Time.timeScale = 1;
     }
 
     private void Update()
