@@ -20,9 +20,6 @@ public class LogoAnimation : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) && isDone)
         {
-            //sceneController.ActivateLoadedScene();
-            //swipeTransition.SetActive(true);
-            //SplashScreenManager.swipeTransition.SetActive(true);
             splashManager.swipeTransition.SetActive(true);
         }
     }
