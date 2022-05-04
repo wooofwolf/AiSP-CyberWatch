@@ -25,6 +25,7 @@ public class LevelSelectManager : MonoBehaviour
         sceneController = SceneController.INSTANCE;
 
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
+        malwareScore = GameManager.INSTANCE.globalMalwareScore;
 
         foreach (GameObject i in shoppingStars)
         {
@@ -53,6 +54,23 @@ public class LevelSelectManager : MonoBehaviour
         else if (shoppingScore >= 900)
         {
             foreach (GameObject gameObject in shoppingStars)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
+        if (malwareScore >= 600 && malwareScore < 750)
+        {
+            malwareStars[0].SetActive(true);
+        }
+        else if (malwareScore >= 750 && malwareScore < 900)
+        {
+            malwareStars[0].SetActive(true);
+            malwareStars[1].SetActive(true);
+        }
+        else if (malwareScore >= 900)
+        {
+            foreach (GameObject gameObject in malwareStars)
             {
                 gameObject.SetActive(true);
             }
