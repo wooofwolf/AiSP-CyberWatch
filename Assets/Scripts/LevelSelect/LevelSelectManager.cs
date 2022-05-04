@@ -7,29 +7,35 @@ using UnityEngine.UI;
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
-    public GameObject[] shoppingStars;
+    public GameObject[] shoppingStars, malwareStars;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
 
-    private int shoppingScore;
+    private int shoppingScore, malwareScore;
 
     private SceneController sceneController;
 
     private void Start()
     {
+        Time.timeScale = 1;
+
         sceneController = SceneController.INSTANCE;
 
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
+        malwareScore = GameManager.INSTANCE.globalMalwareScore;
 
-        foreach(GameObject i in shoppingStars)
+        foreach (GameObject i in shoppingStars)
         {
             i.SetActive(false);
         }
 
-        Time.timeScale = 1;
+        foreach (GameObject i in malwareStars)
+        {
+            i.SetActive(false);
+        }
     }
 
     private void Update()
@@ -48,6 +54,23 @@ public class LevelSelectManager : MonoBehaviour
         else if (shoppingScore >= 900)
         {
             foreach (GameObject gameObject in shoppingStars)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
+        if (malwareScore >= 600 && malwareScore < 750)
+        {
+            malwareStars[0].SetActive(true);
+        }
+        else if (malwareScore >= 750 && malwareScore < 900)
+        {
+            malwareStars[0].SetActive(true);
+            malwareStars[1].SetActive(true);
+        }
+        else if (malwareScore >= 900)
+        {
+            foreach (GameObject gameObject in malwareStars)
             {
                 gameObject.SetActive(true);
             }

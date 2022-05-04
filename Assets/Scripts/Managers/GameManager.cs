@@ -51,7 +51,10 @@ public class GameManager : MonoBehaviour
     // FPS Target
     public int FPSTarget = 144;
 
+    // Global score = score to used for everywhere, current score = score to used when moving to minigame2
     public int globalShoppingScore, currentShoppingScore;
+
+    public int globalMalwareScore, currentMalwareScore;
 
     private void Start()
     {
