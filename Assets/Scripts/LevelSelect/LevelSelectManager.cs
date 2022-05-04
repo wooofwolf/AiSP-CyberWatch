@@ -7,29 +7,34 @@ using UnityEngine.UI;
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
-    public GameObject[] shoppingStars;
+    public GameObject[] shoppingStars, malwareStars;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
 
-    private int shoppingScore;
+    private int shoppingScore, malwareScore;
 
     private SceneController sceneController;
 
     private void Start()
     {
+        Time.timeScale = 1;
+
         sceneController = SceneController.INSTANCE;
 
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
 
-        foreach(GameObject i in shoppingStars)
+        foreach (GameObject i in shoppingStars)
         {
             i.SetActive(false);
         }
 
-        Time.timeScale = 1;
+        foreach (GameObject i in malwareStars)
+        {
+            i.SetActive(false);
+        }
     }
 
     private void Update()
