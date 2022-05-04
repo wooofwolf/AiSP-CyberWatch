@@ -20,6 +20,8 @@ public class Minigame2Manager : MonoBehaviour
 
     public Slider scoreSlider;
 
+    public AudioClip BGM;
+
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
 
@@ -48,6 +50,7 @@ public class Minigame2Manager : MonoBehaviour
         InitGameObjects();
 
         score = GameManager.INSTANCE.currentShoppingScore;
+        audioManager.PlayMusic(BGM);
     }
 
     private void FixedUpdate()

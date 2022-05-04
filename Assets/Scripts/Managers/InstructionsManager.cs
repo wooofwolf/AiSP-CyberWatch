@@ -13,7 +13,7 @@ public class InstructionsManager : MonoBehaviour
     internal bool instructionsFinished = false;
     internal bool isPlaying = false;
 
-    private void Start()
+    private void Awake()
     {
         foreach (GameObject page in pages)
         {
