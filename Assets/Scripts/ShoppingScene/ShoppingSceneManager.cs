@@ -27,22 +27,19 @@ public class ShoppingSceneManager : MonoBehaviour
     [SerializeField] private GameObject objectivesObj;
     [SerializeField] private GameObject endPanel;
 
-    [SerializeField] private GameObject[] instructionsObj; // Array to control instructions
-
-    [SerializeField] private VideoPlayer cutscene, instructonsVideo;
+    [SerializeField] private VideoPlayer cutscene;
 
     [SerializeField] private Sprite[] objectSprites;
 
     [SerializeField] private float ySpawn;
 
-    private int curPage = -1; // Int to control the current page of the instructions
     private int counter; // Used to count the score up in the end screen.
 
+    // Components
     private ObjectPool objectPool;
     private Gacha gacha;
-
-    // Audio Manager
     private AudioManager audioManager;
+    private InstructionsManager instructionsManager;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +50,7 @@ public class ShoppingSceneManager : MonoBehaviour
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        instructionsManager = GetComponent<InstructionsManager>();
 
         InitGameObjects();
     }
@@ -63,13 +61,7 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             // Hide skip
             skipButton.SetActive(false);
-
-            // Prepare next video
-            instructonsVideo.Prepare();
         }
-
-        UpdateInstructionVideo();
-        UpdateInstructions();
 
         if (endPanel.activeInHierarchy)
         {
@@ -99,12 +91,6 @@ public class ShoppingSceneManager : MonoBehaviour
         cutscene.loopPointReached += OnStartCutsceneEnd;
         skipButton.SetActive(true);
 
-        // Init instructions
-        if (curPage == -1)
-        {
-            instructonsVideo.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Instructions/Instructions_pt1pg1.mp4");
-        }
-
         // Init GUI
         objectivesObj.SetActive(false);
         endPanel.SetActive(false);
@@ -126,80 +112,15 @@ public class ShoppingSceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.3f);
 
-        curPage += 1;
+        instructionsManager.StartInstructions();
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         cutscene.gameObject.SetActive(false);
         audioManager.PlayMusic(music);
     }
 
-    // Updates if instructions is active to play or to stop only before gameplay
-    private void UpdateInstructionVideo()
-    {
-        if (curPage != 2 && curPage != -1)
-        {
-            if (instructionsObj[0].gameObject.activeSelf)
-            {
-                instructonsVideo.Play();
-            }
-            else
-            {
-                instructonsVideo.Stop();
-            }
-        }
-    }
-
-    // Updates instructions array to see which page is currently being shown
-    private void UpdateInstructions()
-    {
-        if (curPage != -1 && curPage != 3)
-        {
-            instructionsObj[curPage].SetActive(true);
-
-            for (int i = 0; i < instructionsObj.Length; i++)
-            {
-                if (i != curPage)
-                {
-                    instructionsObj[i].SetActive(false);
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < instructionsObj.Length; i++)
-            {
-                instructionsObj[i].SetActive(false);
-            }
-        }
-    }
-
-    public void NextInstruction()
-    {
-        cutscene.frame = 0;
-        instructonsVideo.Stop();
-
-        curPage += 1;
-    }
-
-    public void PreviousInstruction()
-    {
-        cutscene.frame = 0;
-        curPage -= 1;
-
-        //instructonsVideo.isLooping = true;
-        //instructonsVideo.Play();
-        //cutscene.loopPointReached += OnStartCutsceneEnd;
-    }
-
     public void StartGame()
     {
-        for (int i = 0; i < instructionsObj.Length; i++)
-        {
-            instructionsObj[i].SetActive(false);
-        }
-
-        curPage += 1;
-
         objectivesObj.SetActive(true);
         gameStarted = true;
 
