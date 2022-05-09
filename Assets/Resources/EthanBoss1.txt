@@ -6,3 +6,4 @@
 2:Your worst nightmare!
 2:I have come to steal your information!
 0:Not if I can help it!
+0:我不可以！
