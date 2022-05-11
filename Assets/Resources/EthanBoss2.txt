@@ -1,3 +1,4 @@
-[Actors]Ethan,Spyware
+[Actors]Ethan,Malware
 1:NO! IT CAN'T BE
-1:NOOOOooOooooO
+1:I'VE BEEN DEFEATED
+1:NOOOOOOOOOOOOOO
