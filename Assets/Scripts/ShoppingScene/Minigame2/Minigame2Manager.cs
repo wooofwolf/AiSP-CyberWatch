@@ -14,7 +14,7 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject[] stars;
 
-    public GameObject confettiParticle;
+    public GameObject confettiParticle, stripesGameobject;
 
     public GameObject infographic;
 
@@ -57,6 +57,7 @@ public class Minigame2Manager : MonoBehaviour
     {
         if (results.activeInHierarchy == true)
         {
+            stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
             endScoreText.text = "Total Score: " + localScore;
 
             if (localScore != score)
