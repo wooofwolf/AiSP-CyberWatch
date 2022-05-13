@@ -1,178 +1,169 @@
 fileFormatVersion: 2
-guid: 397169250a0008c46951e09a4e8e75a7
+guid: aae2bd01342fb3c40bfe913fc1da50a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8511891989796467670
-    second: Instructions_pg1_0
+      213: -3497065210395361523
+    second: Instructions_pt1pg1_0
   - first:
-      213: -7927759853550824640
-    second: Instructions_pg1_1
+      213: 4423731847251800419
+    second: Instructions_pt1pg1_1
   - first:
-      213: -4066743661743186095
-    second: Instructions_pg1_2
+      213: -723207415317157944
+    second: Instructions_pt1pg1_2
   - first:
-      213: -5841462127052362256
-    second: Instructions_pg1_3
+      213: 5728609521627310403
+    second: Instructions_pt1pg1_3
   - first:
-      213: 4993702171798639344
-    second: Instructions_pg1_4
+      213: 3490251432763594394
+    second: Instructions_pt1pg1_4
   - first:
-      213: -7553618419472513982
-    second: Instructions_pg1_5
+      213: -2830040408208423351
+    second: Instructions_pt1pg1_5
   - first:
-      213: -2845026095910464494
-    second: Instructions_pg1_6
+      213: 3633766264653306496
+    second: Instructions_pt1pg1_6
   - first:
-      213: -9169272460014320072
-    second: Instructions_pg1_7
+      213: -3859157448729744011
+    second: Instructions_pt1pg1_7
   - first:
-      213: 3778078628181733484
-    second: Instructions_pg1_8
+      213: -4261181917234542210
+    second: Instructions_pt1pg1_8
   - first:
-      213: 7036760031508529399
-    second: Instructions_pg1_9
+      213: 2887183362387732880
+    second: Instructions_pt1pg1_9
   - first:
-      213: -7656392858733008558
-    second: Instructions_pg1_10
+      213: -3728491066522781773
+    second: Instructions_pt1pg1_10
   - first:
-      213: 391181366890259947
-    second: Instructions_pg1_11
+      213: -7634231611573076937
+    second: Instructions_pt1pg1_11
   - first:
-      213: 1976183019916831292
-    second: Instructions_pg1_12
+      213: 4403360305868770763
+    second: Instructions_pt1pg1_12
   - first:
-      213: 1005308051224210574
-    second: Instructions_pg1_13
+      213: -6768337675579715302
+    second: Instructions_pt1pg1_13
   - first:
-      213: 1537882909728521318
-    second: Instructions_pg1_14
+      213: 6540680599557869244
+    second: Instructions_pt1pg1_14
   - first:
-      213: -2156944925797410184
-    second: Instructions_pg1_15
+      213: -7209949052568356080
+    second: Instructions_pt1pg1_15
   - first:
-      213: -5126652874125121870
-    second: Instructions_pg1_16
+      213: -4182497459807686155
+    second: Instructions_pt1pg1_16
   - first:
-      213: -561251100922154587
-    second: Instructions_pg1_17
+      213: -4580341981449425067
+    second: Instructions_pt1pg1_17
   - first:
-      213: 5332973706919359332
-    second: Instructions_pg1_18
+      213: 7003694131592572111
+    second: Instructions_pt1pg1_18
   - first:
-      213: -6685962579133394855
-    second: Instructions_pg1_19
+      213: -5624454207887873064
+    second: Instructions_pt1pg1_19
   - first:
-      213: -7094396623321982053
-    second: Instructions_pg1_20
+      213: -7921296849885016538
+    second: Instructions_pt1pg1_20
   - first:
-      213: 365410378142825260
-    second: Instructions_pg1_21
+      213: 5091191896557953792
+    second: Instructions_pt1pg1_21
   - first:
-      213: 1444050631352168965
-    second: Instructions_pg1_22
+      213: -3689422532432149286
+    second: Instructions_pt1pg1_22
   - first:
-      213: 4060804741133844602
-    second: Instructions_pg1_23
+      213: 195767348660145115
+    second: Instructions_pt1pg1_23
   - first:
-      213: -5051036640056414157
-    second: Instructions_pg1_24
+      213: 3247535795438753116
+    second: Instructions_pt1pg1_24
   - first:
-      213: -1558652251152772567
-    second: Instructions_pg1_25
+      213: 7522141897758259918
+    second: Instructions_pt1pg1_25
   - first:
-      213: 2438709586376188326
-    second: Instructions_pg1_26
+      213: 6596716712732250208
+    second: Instructions_pt1pg1_26
   - first:
-      213: 192633635091845046
-    second: Instructions_pg1_27
+      213: 3047630565523762001
+    second: Instructions_pt1pg1_27
   - first:
-      213: 6917553648680126197
-    second: Instructions_pg1_28
+      213: 40937222650192126
+    second: Instructions_pt1pg1_28
   - first:
-      213: 7094577065593783135
-    second: Instructions_pg1_29
+      213: -6478999803302875086
+    second: Instructions_pt1pg1_29
   - first:
-      213: -1367533073362602213
-    second: Instructions_pg1_30
+      213: 341897683642452947
+    second: Instructions_pt1pg1_30
   - first:
-      213: -3071157453392722939
-    second: Instructions_pg1_31
+      213: -2315295827292698964
+    second: Instructions_pt1pg1_31
   - first:
-      213: -1913098079764746658
-    second: Instructions_pg1_32
+      213: -4753444321638642547
+    second: Instructions_pt1pg1_32
   - first:
-      213: 8056561733516356126
-    second: Instructions_pg1_33
+      213: -3544891043803797567
+    second: Instructions_pt1pg1_33
   - first:
-      213: -2258332202726678306
-    second: Instructions_pg1_34
+      213: -4564698649856078463
+    second: Instructions_pt1pg1_34
   - first:
-      213: 7230856259961843729
-    second: Instructions_pg1_35
+      213: 1048817531500464442
+    second: Instructions_pt1pg1_35
   - first:
-      213: 143019696624254495
-    second: Instructions_pg1_36
+      213: 4128065165089399361
+    second: Instructions_pt1pg1_36
   - first:
-      213: -4946691854832954167
-    second: Instructions_pg1_37
+      213: 7668271236564599660
+    second: Instructions_pt1pg1_37
   - first:
-      213: -2143291584256163174
-    second: Instructions_pg1_38
+      213: 825566031810075758
+    second: Instructions_pt1pg1_38
   - first:
-      213: -5477367947869371658
-    second: Instructions_pg1_39
+      213: 3364739703379333971
+    second: Instructions_pt1pg1_39
   - first:
-      213: 7564070150935831070
-    second: Instructions_pg1_40
+      213: -8230952933550857640
+    second: Instructions_pt1pg1_40
   - first:
-      213: 3999954577868069554
-    second: Instructions_pg1_41
+      213: 131057636076884047
+    second: Instructions_pt1pg1_41
   - first:
-      213: 1563586453942404883
-    second: Instructions_pg1_42
+      213: -778242323474312376
+    second: Instructions_pt1pg1_42
   - first:
-      213: 5328910860688017888
-    second: Instructions_pg1_43
+      213: -5571580414074934386
+    second: Instructions_pt1pg1_43
   - first:
-      213: -8162950708723678885
-    second: Instructions_pg1_44
+      213: 3925325208953267752
+    second: Instructions_pt1pg1_44
   - first:
-      213: -1009126598243988191
-    second: Instructions_pg1_45
+      213: -8600154191942025551
+    second: Instructions_pt1pg1_45
   - first:
-      213: -2764557156599146953
-    second: Instructions_pg1_46
+      213: -6872388191611818272
+    second: Instructions_pt1pg1_46
   - first:
-      213: -6224772417028404777
-    second: Instructions_pg1_47
+      213: 7615341218360985309
+    second: Instructions_pt1pg1_47
   - first:
-      213: -7240786211083290316
-    second: Instructions_pg1_48
+      213: -5294405631863841644
+    second: Instructions_pt1pg1_48
   - first:
-      213: 9071242231885219464
-    second: Instructions_pg1_49
+      213: 6891617145670543821
+    second: Instructions_pt1pg1_49
   - first:
-      213: -3708428840921984509
-    second: Instructions_pg1_50
+      213: -8120299352205566435
+    second: Instructions_pt1pg1_50
   - first:
-      213: 1247475048191502734
-    second: Instructions_pg1_51
+      213: -7161837484545864977
+    second: Instructions_pt1pg1_51
   - first:
-      213: -3103065545735543667
-    second: Instructions_pg1_52
+      213: -3970359473870294443
+    second: Instructions_pt1pg1_52
   - first:
-      213: -5387756728533621466
-    second: Instructions_pg1_53
-  - first:
-      213: -941223515977027882
-    second: Instructions_pg1_54
-  - first:
-      213: -8845418760467443447
-    second: Instructions_pg1_55
-  - first:
-      213: 7420396138785410190
-    second: Instructions_pg1_56
+      213: -6869493834205298218
+    second: Instructions_pt1pg1_53
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -239,9 +230,9 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -251,9 +242,9 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -263,9 +254,9 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -274,11 +265,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Instructions_pg1_0
+      name: Instructions_pt1pg1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 9493
+        y: 7329
         width: 1200
         height: 863
       alignment: 0
@@ -288,18 +279,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d3bf42baa0502670800000000000000
-      internalID: 8511891989796467670
+      spriteID: d0ff10a28bde77fc0800000000000000
+      internalID: -3497065210395361523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_1
+      name: Instructions_pt1pg1_1
       rect:
         serializedVersion: 2
         x: 1200
-        y: 9493
+        y: 7329
         width: 1200
         height: 863
       alignment: 0
@@ -309,18 +300,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04310809a60faf190800000000000000
-      internalID: -7927759853550824640
+      spriteID: 361b6095da0446d30800000000000000
+      internalID: 4423731847251800419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_2
+      name: Instructions_pt1pg1_2
       rect:
         serializedVersion: 2
         x: 2400
-        y: 9493
+        y: 7329
         width: 1200
         height: 863
       alignment: 0
@@ -330,18 +321,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15fd939af260097c0800000000000000
-      internalID: -4066743661743186095
+      spriteID: 8c7a71fffa6a6f5f0800000000000000
+      internalID: -723207415317157944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_3
+      name: Instructions_pt1pg1_3
       rect:
         serializedVersion: 2
         x: 3600
-        y: 9493
+        y: 7329
         width: 1200
         height: 863
       alignment: 0
@@ -351,18 +342,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd65241525feeea0800000000000000
-      internalID: -5841462127052362256
+      spriteID: 3492489220c108f40800000000000000
+      internalID: 5728609521627310403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_4
+      name: Instructions_pt1pg1_4
       rect:
         serializedVersion: 2
         x: 4800
-        y: 9493
+        y: 7329
         width: 1200
         height: 863
       alignment: 0
@@ -372,18 +363,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f29720eaa13d4540800000000000000
-      internalID: 4993702171798639344
+      spriteID: a961caa9f2ddf6030800000000000000
+      internalID: 3490251432763594394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_5
+      name: Instructions_pt1pg1_5
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 7329
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9464cb03e3da9b8d0800000000000000
+      internalID: -2830040408208423351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 8630
+        y: 6466
         width: 1200
         height: 863
       alignment: 0
@@ -393,18 +405,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2444e7a71182c2790800000000000000
-      internalID: -7553618419472513982
+      spriteID: 08a55794a2bbd6230800000000000000
+      internalID: 3633766264653306496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_6
+      name: Instructions_pt1pg1_7
       rect:
         serializedVersion: 2
         x: 1200
-        y: 8630
+        y: 6466
         width: 1200
         height: 863
       alignment: 0
@@ -414,18 +426,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2145a80e6df6488d0800000000000000
-      internalID: -2845026095910464494
+      spriteID: 57d29204fb4817ac0800000000000000
+      internalID: -3859157448729744011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_7
+      name: Instructions_pt1pg1_8
       rect:
         serializedVersion: 2
         x: 2400
-        y: 8630
+        y: 6466
         width: 1200
         height: 863
       alignment: 0
@@ -435,18 +447,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 836031c474330c080800000000000000
-      internalID: -9169272460014320072
+      spriteID: e79caeb7f9d3dd4c0800000000000000
+      internalID: -4261181917234542210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_8
+      name: Instructions_pt1pg1_9
       rect:
         serializedVersion: 2
         x: 3600
-        y: 8630
+        y: 6466
         width: 1200
         height: 863
       alignment: 0
@@ -456,18 +468,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c607446ce7e6e6430800000000000000
-      internalID: 3778078628181733484
+      spriteID: 099e98c98f5511820800000000000000
+      internalID: 2887183362387732880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_9
+      name: Instructions_pt1pg1_10
       rect:
         serializedVersion: 2
         x: 4800
-        y: 8630
+        y: 6466
         width: 1200
         height: 863
       alignment: 0
@@ -477,18 +489,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f08bbf57f797a160800000000000000
-      internalID: 7036760031508529399
+      spriteID: 3b731bf112db14cc0800000000000000
+      internalID: -3728491066522781773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_10
+      name: Instructions_pt1pg1_11
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 6466
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73cf0231cc2cd0690800000000000000
+      internalID: -7634231611573076937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 7767
+        y: 5603
         width: 1200
         height: 863
       alignment: 0
@@ -498,18 +531,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 259a162a2470fb590800000000000000
-      internalID: -7656392858733008558
+      spriteID: bcd0d514ed0eb1d30800000000000000
+      internalID: 4403360305868770763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_11
+      name: Instructions_pt1pg1_13
       rect:
         serializedVersion: 2
         x: 1200
-        y: 7767
+        y: 5603
         width: 1200
         height: 863
       alignment: 0
@@ -519,18 +552,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be5ee307161cd6500800000000000000
-      internalID: 391181366890259947
+      spriteID: a119d278eb80212a0800000000000000
+      internalID: -6768337675579715302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_12
+      name: Instructions_pt1pg1_14
       rect:
         serializedVersion: 2
         x: 2400
-        y: 7767
+        y: 5603
         width: 1200
         height: 863
       alignment: 0
@@ -540,18 +573,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a2d418cffcc6b10800000000000000
-      internalID: 1976183019916831292
+      spriteID: cbe8fede95a25ca50800000000000000
+      internalID: 6540680599557869244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_13
+      name: Instructions_pt1pg1_15
       rect:
         serializedVersion: 2
         x: 3600
-        y: 7767
+        y: 5603
         width: 1200
         height: 863
       alignment: 0
@@ -561,18 +594,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8c2f03a85293fd00800000000000000
-      internalID: 1005308051224210574
+      spriteID: 01bbff0698d11fb90800000000000000
+      internalID: -7209949052568356080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_14
+      name: Instructions_pt1pg1_16
       rect:
         serializedVersion: 2
         x: 4800
-        y: 7767
+        y: 5603
         width: 1200
         height: 863
       alignment: 0
@@ -582,18 +615,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66c338cbb58a75510800000000000000
-      internalID: 1537882909728521318
+      spriteID: 5f1703a58b8c4f5c0800000000000000
+      internalID: -4182497459807686155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_15
+      name: Instructions_pt1pg1_17
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 5603
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fe5ed4c3b5f60c0800000000000000
+      internalID: -4580341981449425067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_18
       rect:
         serializedVersion: 2
         x: 0
-        y: 6904
+        y: 4740
         width: 1200
         height: 863
       alignment: 0
@@ -603,18 +657,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a93c9940ef012e0800000000000000
-      internalID: -2156944925797410184
+      spriteID: fcc201d94be123160800000000000000
+      internalID: 7003694131592572111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_16
+      name: Instructions_pt1pg1_19
       rect:
         serializedVersion: 2
         x: 1200
-        y: 6904
+        y: 4740
         width: 1200
         height: 863
       alignment: 0
@@ -624,18 +678,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b669078f587ad8b0800000000000000
-      internalID: -5126652874125121870
+      spriteID: 8db646392bce1f1b0800000000000000
+      internalID: -5624454207887873064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_17
+      name: Instructions_pt1pg1_20
       rect:
         serializedVersion: 2
         x: 2400
-        y: 6904
+        y: 4740
         width: 1200
         height: 863
       alignment: 0
@@ -645,18 +699,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a1fcbbe8190638f0800000000000000
-      internalID: -561251100922154587
+      spriteID: 62ece2edb76e11290800000000000000
+      internalID: -7921296849885016538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_18
+      name: Instructions_pt1pg1_21
       rect:
         serializedVersion: 2
         x: 3600
-        y: 6904
+        y: 4740
         width: 1200
         height: 863
       alignment: 0
@@ -666,18 +720,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4633d65c457820a40800000000000000
-      internalID: 5332973706919359332
+      spriteID: 0032fad3e0c87a640800000000000000
+      internalID: 5091191896557953792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_19
+      name: Instructions_pt1pg1_22
       rect:
         serializedVersion: 2
         x: 4800
-        y: 6904
+        y: 4740
         width: 1200
         height: 863
       alignment: 0
@@ -687,18 +741,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95013314570b633a0800000000000000
-      internalID: -6685962579133394855
+      spriteID: ad44f0011c98cccc0800000000000000
+      internalID: -3689422532432149286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_20
+      name: Instructions_pt1pg1_23
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 4740
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb028bcd5187b200800000000000000
+      internalID: 195767348660145115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_24
       rect:
         serializedVersion: 2
         x: 0
-        y: 6041
+        y: 3877
         width: 1200
         height: 863
       alignment: 0
@@ -708,18 +783,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b992bdbd3ab8d90800000000000000
-      internalID: -7094396623321982053
+      spriteID: c551e7a8990911d20800000000000000
+      internalID: 3247535795438753116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_21
+      name: Instructions_pt1pg1_25
       rect:
         serializedVersion: 2
         x: 1200
-        y: 6041
+        y: 3877
         width: 1200
         height: 863
       alignment: 0
@@ -729,18 +804,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2bb17a8dc2321500800000000000000
-      internalID: 365410378142825260
+      spriteID: ecab6f5b334046860800000000000000
+      internalID: 7522141897758259918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_22
+      name: Instructions_pt1pg1_26
       rect:
         serializedVersion: 2
         x: 2400
-        y: 6041
+        y: 3877
         width: 1200
         height: 863
       alignment: 0
@@ -750,18 +825,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 502bc67f56c4a0410800000000000000
-      internalID: 1444050631352168965
+      spriteID: 060d94a36ee3c8b50800000000000000
+      internalID: 6596716712732250208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_23
+      name: Instructions_pt1pg1_27
       rect:
         serializedVersion: 2
         x: 3600
-        y: 6041
+        y: 3877
         width: 1200
         height: 863
       alignment: 0
@@ -771,18 +846,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a704181a560ea5830800000000000000
-      internalID: 4060804741133844602
+      spriteID: 15baaa03adb5b4a20800000000000000
+      internalID: 3047630565523762001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_24
+      name: Instructions_pt1pg1_28
       rect:
         serializedVersion: 2
         x: 4800
-        y: 6041
+        y: 3877
         width: 1200
         height: 863
       alignment: 0
@@ -792,18 +867,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33074f9ffec17e9b0800000000000000
-      internalID: -5051036640056414157
+      spriteID: ef0e726ef20719000800000000000000
+      internalID: 40937222650192126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_25
+      name: Instructions_pt1pg1_29
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 3877
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2307e409108f516a0800000000000000
+      internalID: -6478999803302875086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_30
       rect:
         serializedVersion: 2
         x: 0
-        y: 5178
+        y: 3014
         width: 1200
         height: 863
       alignment: 0
@@ -813,18 +909,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9221da1290e8e5ae0800000000000000
-      internalID: -1558652251152772567
+      spriteID: 3db890fb12aaeb400800000000000000
+      internalID: 341897683642452947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_26
+      name: Instructions_pt1pg1_31
       rect:
         serializedVersion: 2
         x: 1200
-        y: 5178
+        y: 3014
         width: 1200
         height: 863
       alignment: 0
@@ -834,18 +930,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a1ea4ea27908d120800000000000000
-      internalID: 2438709586376188326
+      spriteID: ca6464846ba6edfd0800000000000000
+      internalID: -2315295827292698964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_27
+      name: Instructions_pt1pg1_32
       rect:
         serializedVersion: 2
         x: 2400
-        y: 5178
+        y: 3014
         width: 1200
         height: 863
       alignment: 0
@@ -855,18 +951,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bf017f354f5ca200800000000000000
-      internalID: 192633635091845046
+      spriteID: d8c8125039f580eb0800000000000000
+      internalID: -4753444321638642547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_28
+      name: Instructions_pt1pg1_33
       rect:
         serializedVersion: 2
         x: 3600
-        y: 5178
+        y: 3014
         width: 1200
         height: 863
       alignment: 0
@@ -876,18 +972,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f649488466100060800000000000000
-      internalID: 6917553648680126197
+      spriteID: 1c76c9690640ecec0800000000000000
+      internalID: -3544891043803797567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_29
+      name: Instructions_pt1pg1_34
       rect:
         serializedVersion: 2
         x: 4800
-        y: 5178
+        y: 3014
         width: 1200
         height: 863
       alignment: 0
@@ -897,18 +993,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f53c952a040057260800000000000000
-      internalID: 7094577065593783135
+      spriteID: 18d8f9443cee6a0c0800000000000000
+      internalID: -4564698649856078463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_30
+      name: Instructions_pt1pg1_35
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 3014
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39894fecf52e8e00800000000000000
+      internalID: 1048817531500464442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_36
       rect:
         serializedVersion: 2
         x: 0
-        y: 4315
+        y: 2151
         width: 1200
         height: 863
       alignment: 0
@@ -918,18 +1035,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b17bf9f4aeb850de0800000000000000
-      internalID: -1367533073362602213
+      spriteID: 14261de6565d94930800000000000000
+      internalID: 4128065165089399361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_31
+      name: Instructions_pt1pg1_37
       rect:
         serializedVersion: 2
         x: 1200
-        y: 4315
+        y: 2151
         width: 1200
         height: 863
       alignment: 0
@@ -939,18 +1056,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 504cb3d519e0165d0800000000000000
-      internalID: -3071157453392722939
+      spriteID: c6347c8bf0c2b6a60800000000000000
+      internalID: 7668271236564599660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_32
+      name: Instructions_pt1pg1_38
       rect:
         serializedVersion: 2
         x: 2400
-        y: 4315
+        y: 2151
         width: 1200
         height: 863
       alignment: 0
@@ -960,18 +1077,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ee327be6f4375e0800000000000000
-      internalID: -1913098079764746658
+      spriteID: e6c1ba09eeff47b00800000000000000
+      internalID: 825566031810075758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_33
+      name: Instructions_pt1pg1_39
       rect:
         serializedVersion: 2
         x: 3600
-        y: 4315
+        y: 2151
         width: 1200
         height: 863
       alignment: 0
@@ -981,18 +1098,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a6f3d0638aecf60800000000000000
-      internalID: 8056561733516356126
+      spriteID: 353149ddee4f1be20800000000000000
+      internalID: 3364739703379333971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_34
+      name: Instructions_pt1pg1_40
       rect:
         serializedVersion: 2
         x: 4800
-        y: 4315
+        y: 2151
         width: 1200
         height: 863
       alignment: 0
@@ -1002,18 +1119,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed0a6a7a3dac8a0e0800000000000000
-      internalID: -2258332202726678306
+      spriteID: 852edb89ae7c5cd80800000000000000
+      internalID: -8230952933550857640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_35
+      name: Instructions_pt1pg1_41
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 2151
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f401773c93c91d100800000000000000
+      internalID: 131057636076884047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_42
       rect:
         serializedVersion: 2
         x: 0
-        y: 3452
+        y: 1288
         width: 1200
         height: 863
       alignment: 0
@@ -1023,18 +1161,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1107fec2579295460800000000000000
-      internalID: 7230856259961843729
+      spriteID: 8439328eab02335f0800000000000000
+      internalID: -778242323474312376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_36
+      name: Instructions_pt1pg1_43
       rect:
         serializedVersion: 2
         x: 1200
-        y: 3452
+        y: 1288
         width: 1200
         height: 863
       alignment: 0
@@ -1044,18 +1182,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1e3c2508ab1cf100800000000000000
-      internalID: 143019696624254495
+      spriteID: e8b2a850225cda2b0800000000000000
+      internalID: -5571580414074934386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_37
+      name: Instructions_pt1pg1_44
       rect:
         serializedVersion: 2
         x: 2400
-        y: 3452
+        y: 1288
         width: 1200
         height: 863
       alignment: 0
@@ -1065,18 +1203,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c41d5b77f1d95bb0800000000000000
-      internalID: -4946691854832954167
+      spriteID: 826ab83fa7e897630800000000000000
+      internalID: 3925325208953267752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_38
+      name: Instructions_pt1pg1_45
       rect:
         serializedVersion: 2
         x: 3600
-        y: 3452
+        y: 1288
         width: 1200
         height: 863
       alignment: 0
@@ -1086,18 +1224,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a92c356e8af7142e0800000000000000
-      internalID: -2143291584256163174
+      spriteID: 1be75b7f35d16a880800000000000000
+      internalID: -8600154191942025551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_39
+      name: Instructions_pt1pg1_46
       rect:
         serializedVersion: 2
         x: 4800
-        y: 3452
+        y: 1288
         width: 1200
         height: 863
       alignment: 0
@@ -1107,18 +1245,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f2c22b2fda7cf3b0800000000000000
-      internalID: -5477367947869371658
+      spriteID: 0ee6368e95f50a0a0800000000000000
+      internalID: -6872388191611818272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_40
+      name: Instructions_pt1pg1_47
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1288
+        width: 1200
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd60cc38d702fa960800000000000000
+      internalID: 7615341218360985309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions_pt1pg1_48
       rect:
         serializedVersion: 2
         x: 0
-        y: 2589
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1128,18 +1287,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e126aa2e9b9f8f860800000000000000
-      internalID: 7564070150935831070
+      spriteID: 49c9de7f02e7686b0800000000000000
+      internalID: -5294405631863841644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_41
+      name: Instructions_pt1pg1_49
       rect:
         serializedVersion: 2
         x: 1200
-        y: 2589
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1149,18 +1308,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ba1683fe71b28730800000000000000
-      internalID: 3999954577868069554
+      spriteID: dc92fa7d741f3af50800000000000000
+      internalID: 6891617145670543821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_42
+      name: Instructions_pt1pg1_50
       rect:
         serializedVersion: 2
         x: 2400
-        y: 2589
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1170,18 +1329,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31789da7899f2b510800000000000000
-      internalID: 1563586453942404883
+      spriteID: d1ed3f923c6ee4f80800000000000000
+      internalID: -8120299352205566435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_43
+      name: Instructions_pt1pg1_51
       rect:
         serializedVersion: 2
         x: 3600
-        y: 2589
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1191,18 +1350,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e9c70ba13814f940800000000000000
-      internalID: 5328910860688017888
+      spriteID: fea019ab0ca0c9c90800000000000000
+      internalID: -7161837484545864977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_44
+      name: Instructions_pt1pg1_52
       rect:
         serializedVersion: 2
         x: 4800
-        y: 2589
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1212,18 +1371,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b51808f549f57be80800000000000000
-      internalID: -8162950708723678885
+      spriteID: 552ba59281376e8c0800000000000000
+      internalID: -3970359473870294443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_pg1_45
+      name: Instructions_pt1pg1_53
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1726
+        x: 6000
+        y: 425
         width: 1200
         height: 863
       alignment: 0
@@ -1233,239 +1392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12dc44a94bcdef1f0800000000000000
-      internalID: -1009126598243988191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_46
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 1726
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 736d4afc9e152a9d0800000000000000
-      internalID: -2764557156599146953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_47
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 1726
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d94f5b877a2d99a0800000000000000
-      internalID: -6224772417028404777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_48
-      rect:
-        serializedVersion: 2
-        x: 3600
-        y: 1726
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43975d9ed4f838b90800000000000000
-      internalID: -7240786211083290316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_49
-      rect:
-        serializedVersion: 2
-        x: 4800
-        y: 1726
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8864a079fb683ed70800000000000000
-      internalID: 9071242231885219464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_50
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 863
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30218060e93098cc0800000000000000
-      internalID: -3708428840921984509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_51
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 863
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e892e9962fbef4110800000000000000
-      internalID: 1247475048191502734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_52
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 863
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d84edafa352bfe4d0800000000000000
-      internalID: -3103065545735543667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_53
-      rect:
-        serializedVersion: 2
-        x: 3600
-        y: 863
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 625688b0dc7da35b0800000000000000
-      internalID: -5387756728533621466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_54
-      rect:
-        serializedVersion: 2
-        x: 4800
-        y: 863
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dee1f3f23a10f2f0800000000000000
-      internalID: -941223515977027882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_55
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90113cc9082ce3580800000000000000
-      internalID: -8845418760467443447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_pg1_56
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 1200
-        height: 863
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8c0cf829fa8af660800000000000000
-      internalID: 7420396138785410190
+      spriteID: 6d1057101c7aaa0a0800000000000000
+      internalID: -6869493834205298218
       vertices: []
       indices: 
       edges: []
