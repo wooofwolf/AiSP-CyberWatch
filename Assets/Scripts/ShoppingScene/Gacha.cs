@@ -18,6 +18,7 @@ public class Gacha : MonoBehaviour
 
     private void Start()
     {
+        // Get all variables
         manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();

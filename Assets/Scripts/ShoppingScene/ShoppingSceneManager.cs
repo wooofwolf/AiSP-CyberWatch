@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+// Manages everything in shopping scene 1
+// this thing is like REALLY messy its got like game logic, UI, everything
+// we only realised that we should make like different managers for different things after we made this
+// If u wanna reference the manager go to MalwareManager ples thank
+
 public class ShoppingSceneManager : MonoBehaviour
 {
     // Public variables
