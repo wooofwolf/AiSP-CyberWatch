@@ -9,15 +9,19 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    // If the current dialogue manager is ready or is active = used to make sure it is loaded before using
     [HideInInspector] public bool isReady = false;
     [HideInInspector] public bool isActive = false;
 
+    // Reading from text file
     [Header("Text File")]
     [SerializeField] private TextAsset dialogueFile;
 
+    // Used for streamingassets icons/sprites
     [Header("Icon Assets")]
     [SerializeField] private string[] iconList;
 
+    // Dialogue shown name, message and sprites used
     [Header("GUI")]
     [SerializeField] private TextMeshProUGUI actorName;
     [SerializeField] private TextMeshProUGUI messageText;
@@ -40,6 +44,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        // Display error if dialogue text is missing
         if (dialogueFile == null)
         {
             Debug.LogWarning("Dialogue file missing.");
@@ -51,6 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Reading of dialogue text file
     private void ReadComponentsFromFile()
     {
         string str = dialogueFile.text;
@@ -79,6 +85,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Collecting "Icons" from streamingassets connected to actorID
     private IEnumerator GetIcons()
     {
         textureList = new Texture2D[actorList.Count];
@@ -109,6 +116,7 @@ public class DialogueManager : MonoBehaviour
         isReady = true;
     }
 
+    // Function to start dialogue (Used as a button or function)
     public void StartDialogue()
     {
         LeanTween.scale(dialogueBox, new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
@@ -119,6 +127,7 @@ public class DialogueManager : MonoBehaviour
         DisplayMessage();
     }
 
+    // Displays next message if any or ends the dialogue box when no more messages are next
     public void NextMessage()
     {
         if (isActive)
@@ -147,6 +156,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Displays message out into TextMeshPro text box
     private void DisplayMessage()
     {
         continueSprite.SetActive(false);
@@ -160,6 +170,7 @@ public class DialogueManager : MonoBehaviour
         icon.texture = textureList[messageToDisplay.actorID];
     }
 
+    // Printing of text out to simulate typing
     private IEnumerator WriteMessageOut(string messsageText)
     {
         isWriting = true;
@@ -181,6 +192,8 @@ public class DialogueManager : MonoBehaviour
     }
 }
 
+// Class creation
+// Message to use
 [System.Serializable]
 public class Message
 {
@@ -192,6 +205,7 @@ public class Message
     //public string[] messages;
 }
 
+// Actor name
 [System.Serializable]
 public class Actor
 {

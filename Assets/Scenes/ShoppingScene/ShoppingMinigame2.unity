@@ -2476,7 +2476,7 @@ MonoBehaviour:
   - {fileID: 44132486}
   - {fileID: 524087380}
   confettiParticle: {fileID: 7625352986155355497}
-  stripesGameobject: {fileID: 0}
+  stripesGameobject: {fileID: 1141392731}
   infographic: {fileID: 147145629}
   scoreSlider: {fileID: 431003493}
   BGM: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
