@@ -28,17 +28,20 @@ public class ShoppingSceneManager : MonoBehaviour
 
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
-    [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject objectivesObj;
     [SerializeField] private GameObject endPanel;
 
-    [SerializeField] private VideoPlayer cutscene;
-
     [SerializeField] private Sprite[] objectSprites;
+    [SerializeField] private GameObject cutsceneObj;
+
+    [SerializeField] private AudioClip startCutscene_1, startCutscene_2;
+    [SerializeField] private Cutscene cutscene;
+    [SerializeField] private CutsceneSubtitleManager cutsceneSubtitles;
 
     [SerializeField] private float ySpawn;
 
     private int counter; // Used to count the score up in the end screen.
+    private GameObject cutsceneAudio;
 
     // Components
     private ObjectPool objectPool;
@@ -62,12 +65,6 @@ public class ShoppingSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (cutscene.url.Contains("Jennie_Start.mp4") && cutscene.frame == 650L)
-        {
-            // Hide skip
-            skipButton.SetActive(false);
-        }
-
         if (endPanel.activeInHierarchy)
         {
             if (counter != score)
@@ -90,38 +87,39 @@ public class ShoppingSceneManager : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        cutscene.gameObject.SetActive(true);
-        cutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4");
-        cutscene.Prepare();
-        cutscene.loopPointReached += OnStartCutsceneEnd;
-        skipButton.SetActive(true);
+        cutsceneObj.SetActive(true);
+        cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
+        cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Eng");
+        StartCoroutine(TransitionToGame(30f));
 
         // Init GUI
         objectivesObj.SetActive(false);
         endPanel.SetActive(false);
     }
 
-    public void SkipStartCutscene()
+    private IEnumerator TransitionToGame(float time)
     {
-        cutscene.frame = 650L;
-    }
+        yield return new WaitForSeconds(time);
 
-    private void OnStartCutsceneEnd(VideoPlayer videoPlayer)
-    {
-        StartCoroutine(TransitionToGame());
-    }
-
-    private IEnumerator TransitionToGame()
-    {
         sceneTransition.SetActive(true);
 
         yield return new WaitForSeconds(1.3f);
 
+        cutsceneObj.SetActive(false);
         instructionsManager.StartInstructions();
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
-        cutscene.gameObject.SetActive(false);
         audioManager.PlayMusic(music);
+    }
+
+    public void SkipCutscene()
+    {
+        cutsceneSubtitles.SetTimer(27.05f);
+        cutscene.SkipCutscene();
+        cutsceneObj.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
+        Destroy(cutsceneAudio.gameObject);
+        StopCoroutine("TransitionToGame");
+        StartCoroutine(TransitionToGame(3f));
     }
 
     public void StartGame()

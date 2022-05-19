@@ -12,27 +12,19 @@ public class CutsceneSubtitleManager : MonoBehaviour
     // Cutscenes are 24 FPS
 
     [Header("Attributes")]
-    [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] internal GameObject cutsceneObj;
-    [SerializeField] internal GameObject skipButton;
     [SerializeField] internal TextMeshProUGUI captions;
 
-    public bool isPlaying = false;
-    public bool hasPlayed = false;
+    private float timer = 0f;
 
     // frame, caption
     private Dictionary<int[], string> captionsDictionary = new Dictionary<int[], string>();
 
     private void Update()
     {
-        // frames might skip
-        long frame = videoPlayer.frame;
-
         for (int i = captionsDictionary.Count - 1; i >= 0; --i)
         {
             int[] keys = captionsDictionary.Keys.ElementAt(i);
-
-            if (frame >= keys[0] && frame <= keys[1])
+            if (timer >= keys[0] / 100 && timer <= keys[1] / 100)
             {
                 captions.text = captionsDictionary.Values.ElementAt(i);
                 break;
@@ -42,21 +34,13 @@ public class CutsceneSubtitleManager : MonoBehaviour
                 captions.text = "";
             }
         }
+
+        timer += Time.deltaTime;
     }
 
-    public void StartCutscene(string url)
+    public void SetTimer(float time)
     {
-        if (isPlaying)
-        {
-            return;
-        }
-
-        cutsceneObj.SetActive(true);
-        videoPlayer.url = url;
-        videoPlayer.loopPointReached += FinishCutscene;
-        videoPlayer.Play();
-
-        isPlaying = true;
+        timer = time;
     }
 
     public void InitSubtitles(string filePath)
@@ -72,35 +56,15 @@ public class CutsceneSubtitleManager : MonoBehaviour
 
             // Start timestamp
             string[] startTimestamp = Regex.Split(timestamps[0], ":");
-            int start = (int.Parse(startTimestamp[0]) * 24) + int.Parse(startTimestamp[1]);
+            int start = (int.Parse(startTimestamp[0]) * 100) + int.Parse(startTimestamp[1]);
 
             // End timestamp
             string[] endTimestamp = Regex.Split(timestamps[1], ":");
-            int end = (int.Parse(endTimestamp[0]) * 24) + int.Parse(endTimestamp[1]);
+            int end = (int.Parse(endTimestamp[0]) * 100) + int.Parse(endTimestamp[1]);
 
             int[] timestampsInt = { start, end };
 
             captionsDictionary.Add(timestampsInt, strArray[i + 1]);
         }
-    }
-
-    private void FinishCutscene(VideoPlayer videoPlayer)
-    {
-        videoPlayer.Stop();
-        isPlaying = false;
-        hasPlayed = true;
-    }
-
-    public void SkipCutscene(int frame)
-    {
-        videoPlayer.frame = frame;
-        skipButton.SetActive(false);
-    }
-
-    public void ResetCutscene()
-    {
-        videoPlayer.Stop();
-        isPlaying = false;
-        hasPlayed = false;
     }
 }

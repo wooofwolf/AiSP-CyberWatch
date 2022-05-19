@@ -11,7 +11,7 @@ public class CutsceneTestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cutsceneManager.StartCutscene(System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4"));
+        //cutsceneManager.StartCutscene(System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Start.mp4"));
         cutsceneManager.InitSubtitles("Jennie_Cutscene1_Eng");
     }
 }

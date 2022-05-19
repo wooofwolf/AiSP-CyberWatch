@@ -57,6 +57,20 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
+    // Play a single clip and get the gameobject
+    public GameObject PlayAndGetObject(AudioClip clip)
+    {
+        // Create new gameobject
+        GameObject soundEffect = new GameObject("Sound Effect");
+        AudioSource source = soundEffect.AddComponent<AudioSource>();
+        EffectsSource.Add(source);
+
+        source.clip = clip;
+        source.Play();
+
+        return soundEffect;
+    }
+
     public void PlayDialogueClip(AudioClip clip)
     {
         if (dialogueManager.isWriting && !DialogueSource.isPlaying)
