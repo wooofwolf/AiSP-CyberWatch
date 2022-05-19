@@ -10,8 +10,40 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] internal GameObject cutsceneObj;
     [SerializeField] internal GameObject skipButton;
 
+    internal bool isPreparing = false;
+    internal bool hasPrepared = false;
+
     public bool isPlaying = false;
     public bool hasPlayed = false;
+
+    private void Update()
+    {
+        if (isPreparing && videoPlayer.isPrepared)
+        {
+            hasPrepared = true;
+        }
+    }
+
+    public void PrepareCutscene(string url)
+    {
+        videoPlayer.url = url;
+        videoPlayer.Prepare();
+        isPreparing = true;
+    }
+
+    public void StartCutscene()
+    {
+        if (isPlaying)
+        {
+            return;
+        }
+
+        cutsceneObj.SetActive(true);
+        videoPlayer.loopPointReached += FinishCutscene;
+        videoPlayer.Play();
+
+        isPlaying = true;
+    }
 
     public void StartCutscene(string url)
     {
