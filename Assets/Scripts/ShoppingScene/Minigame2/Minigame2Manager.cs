@@ -20,7 +20,9 @@ public class Minigame2Manager : MonoBehaviour
 
     public Slider scoreSlider;
 
-    public AudioClip BGM;
+    public AudioClip BGM, starPop1, starPop2, starPop3, starEnd;
+
+    private bool starPlay = false;
 
     // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -74,6 +76,15 @@ public class Minigame2Manager : MonoBehaviour
                 {
                     confettiParticle.SetActive(true);
                 }
+
+                //Play End Star sound here
+                //audioManager.(starEnd);
+
+                if (!starPlay)
+                {
+                    audioManager.PlayAndGetObject(starEnd);
+                    starPlay = true;
+                }
             }
         }
     }
@@ -87,6 +98,8 @@ public class Minigame2Manager : MonoBehaviour
                 stars[2].SetActive(true);
                 stars[2].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
                 star3Anim = true;
+
+                audioManager.PlayAndGetObject(starPop3);
             }
         }
         else if (localScore >= 750)
@@ -96,6 +109,8 @@ public class Minigame2Manager : MonoBehaviour
                 stars[1].SetActive(true);
                 stars[1].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
                 star2Anim = true;
+
+                audioManager.PlayAndGetObject(starPop2);
             }
         }
         else if (localScore >= 600)
@@ -105,6 +120,8 @@ public class Minigame2Manager : MonoBehaviour
                 stars[0].SetActive(true);
                 stars[0].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
                 star1Anim = true;
+
+                audioManager.PlayAndGetObject(starPop1);
             }
         }
 

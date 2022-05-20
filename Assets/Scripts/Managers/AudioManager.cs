@@ -18,15 +18,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         if (GameObject.Find("MusicSource") != null)
         {
             MusicSource = GameObject.Find("MusicSource").GetComponent<AudioSource>();
@@ -49,11 +40,6 @@ public class AudioManager : MonoBehaviour
                 Destroy(EffectsSource[i].gameObject);
                 EffectsSource.Remove(EffectsSource[i]);
             }
-        }
-
-        if(SceneManager.GetActiveScene().buildIndex > 1)
-        {
-            Destroy(gameObject);
         }
     }
 

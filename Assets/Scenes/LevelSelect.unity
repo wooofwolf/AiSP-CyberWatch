@@ -1842,7 +1842,6 @@ MonoBehaviour:
   - {fileID: 1260760775}
   DialogueSource: {fileID: 0}
   dialogueManager: {fileID: 0}
-  buttonHover: {fileID: 8300000, guid: 0cdafc8bbad4d7c49bbcd14300b444a2, type: 3}
 --- !u!114 &1157469007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,7 +2176,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 04e58e7a092787149868ff986cca9b2f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
