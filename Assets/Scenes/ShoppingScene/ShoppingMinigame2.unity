@@ -2805,7 +2805,7 @@ MonoBehaviour:
   starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
   starPop2: {fileID: 8300000, guid: ef91301e8394b804dbffb2538c17346b, type: 3}
   starPop3: {fileID: 8300000, guid: 898428d349cccc442bdf3d8cc8db35a4, type: 3}
-  starEnd: {fileID: 8300000, guid: 8ddd39fe8fbb3974d81d663993d312aa, type: 3}
+  starEnd: {fileID: 8300000, guid: 2b76978458c23b548a88a50716b975e9, type: 3}
   startingFade: {fileID: 2003003611}
   sceneTransition: {fileID: 2059098093}
   correctEffect: {fileID: 8300000, guid: d56de7413cf16204180117210dacef68, type: 3}
