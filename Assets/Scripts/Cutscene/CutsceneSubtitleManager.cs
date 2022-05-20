@@ -15,6 +15,7 @@ public class CutsceneSubtitleManager : MonoBehaviour
     [SerializeField] internal TextMeshProUGUI captions;
 
     private float timer = 0f;
+    private bool captionsInitialized = false;
 
     // frame, caption
     private Dictionary<int[], string> captionsDictionary = new Dictionary<int[], string>();
@@ -35,7 +36,10 @@ public class CutsceneSubtitleManager : MonoBehaviour
             }
         }
 
-        timer += Time.deltaTime;
+        if (captionsInitialized)
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     public void SetTimer(float time)
@@ -66,5 +70,7 @@ public class CutsceneSubtitleManager : MonoBehaviour
 
             captionsDictionary.Add(timestampsInt, strArray[i + 1]);
         }
+
+        captionsInitialized = true;
     }
 }
