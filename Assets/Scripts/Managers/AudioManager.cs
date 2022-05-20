@@ -15,9 +15,6 @@ public class AudioManager : MonoBehaviour
     // Components
     [SerializeField] private DialogueManager dialogueManager;
 
-    // Global audio clips.
-    public AudioClip buttonHover;
-
     void Start()
     {
         if (GameObject.Find("MusicSource") != null)
@@ -90,16 +87,5 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         MusicSource.Stop();
-    }
-
-    private void OnMouseEnter()
-    {
-        // Create new gameobject
-        GameObject soundEffect = new GameObject("Sound Effect");
-        AudioSource source = soundEffect.AddComponent<AudioSource>();
-        EffectsSource.Add(source);
-
-        source.clip = buttonHover;
-        source.Play();
     }
 }
