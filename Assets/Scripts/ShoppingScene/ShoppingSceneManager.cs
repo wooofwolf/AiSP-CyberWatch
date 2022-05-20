@@ -118,7 +118,7 @@ public class ShoppingSceneManager : MonoBehaviour
         cutscene.SkipCutscene();
         cutsceneObj.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
         Destroy(cutsceneAudio.gameObject);
-        StopCoroutine("TransitionToGame");
+        StopAllCoroutines();
         StartCoroutine(TransitionToGame(3f));
     }
 
