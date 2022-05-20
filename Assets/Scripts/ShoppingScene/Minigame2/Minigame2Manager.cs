@@ -28,7 +28,9 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI;
-    [SerializeField] private VideoPlayer endCutscene;
+    [SerializeField] private GameObject endCutscene;
+    [SerializeField] private CutsceneSubtitleManager subtitleManager;
+    [SerializeField] private AudioClip loseAudio, winAudio;
     [SerializeField] private GameObject instructions1, instructions2, results;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
@@ -220,35 +222,29 @@ public class Minigame2Manager : MonoBehaviour
 
         minigame.SetActive(false);
         resultsScreen.SetActive(true);
-        endCutscene.gameObject.SetActive(true);
+        endCutscene.SetActive(true);
 
         if (score >= 600)
         {
-            endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Win.mp4");
+            subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
+            endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+            audioManager.Play(winAudio);
+            StartCoroutine(StopCutscene(17f));
         }
         else
         {
-            endCutscene.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Cutscenes/Jennie_Lose.mp4");
+            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
+            endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+            audioManager.Play(loseAudio);
+            StartCoroutine(StopCutscene(6f));
         }
-        StartCoroutine(PrepareCutscene(endCutscene));
-        endCutscene.loopPointReached += OnCutsceneEnd;
     }
 
-    private IEnumerator PrepareCutscene(VideoPlayer vp)
+    private IEnumerator StopCutscene(float time)
     {
-        vp.Prepare();
+        yield return new WaitForSeconds(time);
 
-        while (!vp.isPrepared)
-        {
-            yield return null;
-        }
-
-        vp.Play();
-    }
-
-    private void OnCutsceneEnd(VideoPlayer videoPlayer)
-    {
-        endCutscene.gameObject.SetActive(false);
+        endCutscene.SetActive(false);
         results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalShoppingScore)
