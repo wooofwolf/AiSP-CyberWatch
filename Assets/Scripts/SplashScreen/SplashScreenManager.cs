@@ -9,11 +9,7 @@ public class SplashScreenManager : MonoBehaviour
     // Public Variables
     public GameObject swipeTransition;
 
-    public GameObject passwordObject;
-    //public InputField passwordField;
-
-    public TMP_InputField passwordField;
-
+    public GameObject horizontalNotice;
     public GameObject splashLogoObject;
 
     // Private Variables
@@ -28,26 +24,19 @@ public class SplashScreenManager : MonoBehaviour
         gameManager = GameManager.INSTANCE;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
+        StartCoroutine(StartSplash());
+
         sceneController.LoadSceneAsync(1);
     }
 
-    void Update()
+    private IEnumerator StartSplash()
     {
-        if (passwordObject.activeSelf != false)
-        {
-            splashLogoObject.SetActive(false);
-        }
-        else
-        {
-            splashLogoObject.SetActive(true);
-        }
-    }
+        horizontalNotice.SetActive(true);
+        splashLogoObject.SetActive(false);
 
-    public void CheckPassword()
-    {
-        if (passwordField.text.Equals("Cyberwatch"))
-        {
-            passwordObject.SetActive(false);
-        }
+        yield return new WaitForSeconds(4f);
+
+        horizontalNotice.SetActive(false);
+        splashLogoObject.SetActive(true);
     }
 }
