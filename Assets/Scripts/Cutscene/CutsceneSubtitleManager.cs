@@ -17,22 +17,27 @@ public class CutsceneSubtitleManager : MonoBehaviour
     private float timer = 0f;
     private bool captionsInitialized = false;
 
+    private bool startSubtitle = false; // Used to stop update when finished
+
     // frame, caption
     private Dictionary<int[], string> captionsDictionary = new Dictionary<int[], string>();
 
     private void Update()
     {
-        for (int i = captionsDictionary.Count - 1; i >= 0; --i)
+        if (startSubtitle)
         {
-            int[] keys = captionsDictionary.Keys.ElementAt(i);
-            if (timer >= keys[0] / 100 && timer <= keys[1] / 100)
+            for (int i = captionsDictionary.Count - 1; i >= 0; --i)
             {
-                captions.text = captionsDictionary.Values.ElementAt(i);
-                break;
-            }
-            else
-            {
-                captions.text = "";
+                int[] keys = captionsDictionary.Keys.ElementAt(i);
+                if (timer >= keys[0] / 100 && timer <= keys[1] / 100)
+                {
+                    captions.text = captionsDictionary.Values.ElementAt(i);
+                    break;
+                }
+                else
+                {
+                    captions.text = "";
+                }
             }
         }
 
@@ -49,6 +54,7 @@ public class CutsceneSubtitleManager : MonoBehaviour
 
     public void InitSubtitles(string filePath)
     {
+        startSubtitle = true;
         TextAsset captionsFile = Resources.Load<TextAsset>(filePath);
         string captionsStr = captionsFile.text;
 
@@ -72,5 +78,11 @@ public class CutsceneSubtitleManager : MonoBehaviour
         }
 
         captionsInitialized = true;
+    }
+
+    public void FinishSubtitle()
+    {
+        startSubtitle = false;
+        captionsInitialized = false;
     }
 }
