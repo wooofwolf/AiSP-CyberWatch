@@ -20,19 +20,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite neutral, happy, sad;
     [SerializeField] private SpriteRenderer currentSprite;
 
-    private ShoppingSceneManager manager;
+    private ShoppingSceneManager sceneManager;
     private AudioManager audioManager;
     private Rigidbody2D rb2d;
     private ScoreSpawner scoreSpawner;
 
     private bool facingRight = true;
 
-    Vector2 lastPos;
-    Vector2 trackVelocity;
+    private Vector2 lastPos;
+    private Vector2 trackVelocity;
 
     private void Start()
     {
-        manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
+        sceneManager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rb2d = GetComponent<Rigidbody2D>();
         currentSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!manager.gameStarted || manager.gameEnded)
+        if (!sceneManager.gameStarted || sceneManager.gameEnded)
         {
             return;
         }
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 ++phonesCaught;
                 phoneObjective.text = phonesCaught + "/3";
                 StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
-                manager.score += 50;
+                sceneManager.score += 50;
                 CreateParticleEffect();
 
                 if (phonesCaught == 3)
@@ -133,11 +133,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 1: // Broken Phone
-                if (manager.score != 0)
+                if (sceneManager.score != 0)
                 {
-                    manager.score -= 50;
+                    sceneManager.score -= 50;
                 }
-                StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
+                StartCoroutine(BlinkColorGUI(sceneManager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
 
                 StartCoroutine(ChangeExpressions(2));
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 ++phonesCaught;
                 phoneObjective.text = phonesCaught + "/3";
                 StartCoroutine(BlinkColorGUI(phoneObjective, Color.green));
-                manager.score += 100;
+                sceneManager.score += 100;
                 CreateParticleEffect();
 
                 if (phonesCaught == 3)
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
-                manager.score += 50;
+                sceneManager.score += 50;
                 CreateParticleEffect();
 
                 if (laptopsCaught == 3)
@@ -190,11 +190,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 4: //Broken Laptop
-                if (manager.score != 0)
+                if (sceneManager.score != 0)
                 {
-                    manager.score -= 50;
+                    sceneManager.score -= 50;
                 }
-                StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
+                StartCoroutine(BlinkColorGUI(sceneManager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
 
                 StartCoroutine(ChangeExpressions(2));
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
                 ++laptopsCaught;
                 laptopObjective.text = laptopsCaught + "/3";
                 StartCoroutine(BlinkColorGUI(laptopObjective, Color.green));
-                manager.score += 100;
+                sceneManager.score += 100;
                 CreateParticleEffect();
 
                 if (laptopsCaught == 3)
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
-                manager.score += 50;
+                sceneManager.score += 50;
                 CreateParticleEffect();
 
                 if (chargersCaught == 3)
@@ -247,11 +247,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 7: // Broken Charger
-                if (manager.score != 0)
+                if (sceneManager.score != 0)
                 {
-                    manager.score -= 50;
+                    sceneManager.score -= 50;
                 }
-                StartCoroutine(BlinkColorGUI(manager.scoreText, Color.red));
+                StartCoroutine(BlinkColorGUI(sceneManager.scoreText, Color.red));
                 audioManager.Play(wrongSFX);
 
                 StartCoroutine(ChangeExpressions(2));
@@ -263,7 +263,7 @@ public class PlayerController : MonoBehaviour
                 ++chargersCaught;
                 chargerObjective.text = chargersCaught + "/3";
                 StartCoroutine(BlinkColorGUI(chargerObjective, Color.green));
-                manager.score += 100;
+                sceneManager.score += 100;
                 CreateParticleEffect();
 
                 if (chargersCaught == 3)
@@ -317,7 +317,7 @@ public class PlayerController : MonoBehaviour
     {
         if (phonesCaught >= 3 && laptopsCaught >= 3 && chargersCaught >= 3)
         {
-            manager.WinGame();
+            sceneManager.WinGame();
             Time.timeScale = 1;
         }
     }

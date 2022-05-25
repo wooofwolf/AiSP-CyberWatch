@@ -7,7 +7,7 @@ public class Gacha : MonoBehaviour
     // Private variables
     [SerializeField] private int startingWeight = 100;
 
-    private ShoppingSceneManager manager;
+    private ShoppingSceneManager sceneManager;
     private PlayerController player;
     private ObjectPool objectPool;
     private int singularWeight, properWeight;
@@ -19,10 +19,10 @@ public class Gacha : MonoBehaviour
     private void Start()
     {
         // Get all variables
-        manager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
+        sceneManager = GameObject.Find("CurrentSceneManager").GetComponent<ShoppingSceneManager>();
         objectPool = GameObject.Find("CurrentSceneManager").GetComponent<ObjectPool>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-        amountVariables = manager.GetNumberOfObjects();
+        amountVariables = sceneManager.GetNumberOfObjects();
 
         singularWeight = startingWeight / amountVariables;
         table = new List<int>();

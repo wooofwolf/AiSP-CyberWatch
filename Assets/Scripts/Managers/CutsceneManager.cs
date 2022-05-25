@@ -5,16 +5,16 @@ using UnityEngine.Video;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [Header("Attributes")]
-    [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] internal GameObject cutsceneObj;
-    [SerializeField] internal GameObject skipButton;
-
     internal bool isPreparing = false;
     internal bool hasPrepared = false;
 
+    [SerializeField] internal GameObject cutsceneObj;
+    [SerializeField] internal GameObject skipButton;
+
     public bool isPlaying = false;
     public bool hasPlayed = false;
+
+    [SerializeField] private VideoPlayer videoPlayer;
 
     private void Update()
     {
