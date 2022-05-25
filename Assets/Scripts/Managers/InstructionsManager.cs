@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InstructionsManager : MonoBehaviour
 {
+    internal bool instructionsFinished = false;
+    internal bool isPlaying = false;
+    
     [Header("Page Objects")]
     [SerializeField] private GameObject[] pages;
 
     // Private variables
     private int pageNo = 0;
-
-    internal bool instructionsFinished = false;
-    internal bool isPlaying = false;
 
     private void Awake()
     {

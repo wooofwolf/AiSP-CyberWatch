@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LogoAnimation : MonoBehaviour
 {
-    public GameObject ContinueText;
+    public GameObject continueText;
 
     public bool isDone = false;
 
@@ -12,7 +12,7 @@ public class LogoAnimation : MonoBehaviour
 
     public void Start()
     {
-        ContinueText.SetActive(isDone);
+        continueText.SetActive(isDone);
         splashManager = GameManager.FindObjectOfType<SplashScreenManager>();
     }
 
@@ -27,7 +27,7 @@ public class LogoAnimation : MonoBehaviour
     public void ShowText()
     {
         isDone = true;
-        ContinueText.SetActive(isDone);
+        continueText.SetActive(isDone);
         GetComponent<Animator>().SetBool("Finish", isDone);
     }
 }
