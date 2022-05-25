@@ -9,9 +9,13 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    internal bool isWriting = false;
+
     // If the current dialogue manager is ready or is active = used to make sure it is loaded before using
     [HideInInspector] public bool isReady = false;
     [HideInInspector] public bool isActive = false;
+
+    public Texture2D[] textureList;
 
     // Reading from text file
     [Header("Text File")]
@@ -36,11 +40,9 @@ public class DialogueManager : MonoBehaviour
     // Components in file
     private readonly List<Actor> actorList = new List<Actor>();
     private readonly List<Message> messageList = new List<Message>();
-    public Texture2D[] textureList;
 
     // Displaying dialogue
     private int activeMessage = 0;
-    internal bool isWriting = false;
 
     private void Start()
     {
