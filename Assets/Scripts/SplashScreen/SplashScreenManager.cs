@@ -34,7 +34,7 @@ public class SplashScreenManager : MonoBehaviour
         horizontalNotice.SetActive(true);
         splashLogoObject.SetActive(false);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
 
         horizontalNotice.SetActive(false);
         splashLogoObject.SetActive(true);
